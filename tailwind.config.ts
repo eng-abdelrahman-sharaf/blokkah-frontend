@@ -39,6 +39,54 @@ const config: Config = {
       'inputBoxShadow': '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
       'inputFocusedBoxShadow': '0px 1px 2px 0px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #E3F6FF'
     },
+    fontFamily: {
+      "Cairo" :["Cairo", 'sans-serif'],
+    },
+    fontSize: {
+      'display-2xl': ['7.2rem', {
+        lineHeight: '9rem',
+        letterSpacing: "-0.02em",
+      }],
+      'display-xl': ['6rem', {
+        lineHeight: '7.2rem',
+        letterSpacing: "-0.02em",
+      }],
+      'display-lg': ['4.8rem', {
+        lineHeight: '6rem',
+        letterSpacing: "-0.02em",
+      }],
+      'display-md': ['3.6rem', {
+        lineHeight: '4.4rem',
+        letterSpacing: "-0.02em",
+      }],
+      'display-sm': ['3rem', {
+        lineHeight: '3.8rem',
+      }],
+      'display-xs': ['2.4rem', {
+        lineHeight: '3.2rem',
+      }],
+      'text-xl': ['2rem', {
+        lineHeight: '3rem',
+      }],
+      'text-lg': ['1.8rem', {
+        lineHeight: '2.8rem',
+      }],
+      'text-md': ['1.6rem', {
+        lineHeight: '2.4rem',
+      }],
+      'text-sm': ['1.4rem', {
+        lineHeight: '2rem',
+      }],
+      'text-xs': ['1.2rem', {
+        lineHeight: '1.8rem',
+      }],
+    },
+    fontWeight: {
+      regular: "400",
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+    },
     extend: {
     },
   },
