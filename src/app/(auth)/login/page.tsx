@@ -1,14 +1,11 @@
-import AuthFormsHeader from '@/components/auth/AuthFormsHeader'
-import Input from '@/components/UI/Input'
-import React from 'react'
+import React from 'react';
 
-const page = () => {
+import LoginForm from '@/components/auth/LoginForm';
+
+const Page: React.FC = () => {
     return (
-        <div>
-            <AuthFormsHeader />
-            <Input />
-        </div>
-    )
+        <LoginForm />
+    );
 }
 
-export default page
+export default Page;
