@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PasswordVisible = () => {
+const Eye = () => {
     return (
         <svg
             width="16"
@@ -36,4 +36,4 @@ const PasswordVisible = () => {
     )
 }
 
-export default PasswordVisible
+export default Eye

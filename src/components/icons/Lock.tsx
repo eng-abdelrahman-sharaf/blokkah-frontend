@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PasswordLock = () => {
+const Lock = () => {
     return (
         <svg
             width="20"
@@ -21,4 +21,4 @@ const PasswordLock = () => {
     )
 }
 
-export default PasswordLock
+export default Lock
