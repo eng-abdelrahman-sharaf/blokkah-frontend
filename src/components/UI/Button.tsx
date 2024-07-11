@@ -23,7 +23,14 @@ interface AVButtonProps extends Omit<ButtonProps,"className">{
 }
 
 export const AVButton = (props: AVButtonProps) => {
-  let bgcolor: string;
-  if (props.variation == "primary")  
-  return <Button className="flex gap-2 px-3 py-5" {...props}  />
+  let bgcolor: string = "" , textColor:string = "";
+  if (props.variation == "primary") {
+    bgcolor = "bg-Brand-600"
+    textColor= "text-white"
+  }
+  else if(props.variation == "secondary") {
+    bgcolor = "bg-white"
+    textColor= "text-Gray-700"
+  }
+  return <Button className={`flex gap-2 px-3 py-5  rounded-lg width border h-full ${bgcolor} ${textColor} `} {...props}  />
 }

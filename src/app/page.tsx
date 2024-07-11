@@ -8,7 +8,7 @@ export default function Home() {
         <br />
         Regular
       </h1>
-      <AVButton/>
+      <AVButton variation="primary" label="button" />
     </main>
   );
 }
