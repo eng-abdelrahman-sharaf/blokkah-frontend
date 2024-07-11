@@ -1,5 +1,7 @@
+import { AuthContextProvider } from "@/context/AuthContext";
 import type { Metadata } from "next";
-import Image from "next/image";
+
+import './authentication.css';
 
 export const metadata: Metadata = {
     title: "Authentication",
@@ -13,8 +15,10 @@ export default function AuthLayout({
 }>) {
     return (
         <div className="w-full min-h-screen flex items-center justify-center bg-[url('/assets/DashAuthPagesBg.svg')]">
-            <div className="max-w-[488px]">
-                {children}
+            <div className="max-w-[488px] w-full">
+                <AuthContextProvider>
+                    {children}
+                </AuthContextProvider>
             </div>
         </div>
     );
