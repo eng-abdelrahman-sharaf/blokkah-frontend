@@ -1,3 +1,5 @@
+import { AVButton } from "@/components/UI/Button";
+
 export default function Home() {
   return (
     <main>
@@ -6,6 +8,7 @@ export default function Home() {
         <br />
         Regular
       </h1>
+      <AVButton/>
     </main>
   );
 }

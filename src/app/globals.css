@@ -4,8 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html { font-size: 62.5%; }
-
 * {
   font-family: "Cairo", sans-serif;
 }
