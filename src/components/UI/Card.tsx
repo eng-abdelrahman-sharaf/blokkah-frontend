@@ -13,29 +13,29 @@ const Card = React.forwardRef<
 ));
 Card.displayName = "Card";
 
-const CardHeaderImage = React.forwardRef<
+const HeaderImage = React.forwardRef<
   HTMLImageElement,
   React.ImgHTMLAttributes<HTMLImageElement>
 >(({ className, ...props }, ref) => (
   <img ref={ref} className={cn("h-14", className)} {...props} />
 ));
-CardHeaderImage.displayName = "CardHeaderImage";
+HeaderImage.displayName = "HeaderImage";
 
-const CardHeader = React.forwardRef<
+const CardChildContainer = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("flex flex-col gap-6 items-center", className)} {...props} />
 ));
-CardHeader.displayName = "CardHeader";
+CardChildContainer.displayName = "CardChildContainer";
 
-const CardTextContainer = React.forwardRef<
+const HeaderTextContainer = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("flex flex-col gap-2 items-center", className)} {...props} />
 ));
-CardTextContainer.displayName = "CardTextContainer";
+HeaderTextContainer.displayName = "HeaderTextContainer";
 
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
@@ -67,33 +67,12 @@ const CardDescription = React.forwardRef<
 ));
 CardDescription.displayName = "CardDescription";
 
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-));
-CardContent.displayName = "CardContent";
-
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
-    {...props}
-  />
-));
-CardFooter.displayName = "CardFooter";
 
 export {
   Card,
-  CardHeader,
-  CardFooter,
+  CardChildContainer,
   CardTitle,
   CardDescription,
-  CardContent,
-  CardTextContainer,
-  CardHeaderImage,
+  HeaderTextContainer,
+  HeaderImage,
 };
