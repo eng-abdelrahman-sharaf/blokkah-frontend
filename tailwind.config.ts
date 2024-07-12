@@ -91,94 +91,44 @@ const config: Config = {
         },
       },
       boxShadow: {
-        "xs": "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
-        "sm": "0px 1px 2px 0px rgba(16, 24, 40, 0.06), 0px 1px 3px 0px rgba(16, 24, 40, 0.1)", 
-        "md": "0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.1)", 
-        "lg": "0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)",  
-        "xl": "0px 8px 8px -4px rgba(16, 24, 40, 0.03), 0px 20px 24px -4px rgba(16, 24, 40, 0.08)",
-        "2xl":"0px 24px 48px -12px rgba(16, 24, 40, 0.18)", 
-        "3xl" : "0px 32px 64px -12px rgba(16, 24, 40, 0.14)",
-        
+        xs: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
+        sm: "0px 1px 2px 0px rgba(16, 24, 40, 0.06), 0px 1px 3px 0px rgba(16, 24, 40, 0.1)",
+        md: "0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.1)",
+        lg: "0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)",
+        xl: "0px 8px 8px -4px rgba(16, 24, 40, 0.03), 0px 20px 24px -4px rgba(16, 24, 40, 0.08)",
+        "2xl": "0px 24px 48px -12px rgba(16, 24, 40, 0.18)",
+        "3xl": "0px 32px 64px -12px rgba(16, 24, 40, 0.14)",
+
         inputBoxShadow: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
         inputFocusedBoxShadow:
           "0px 1px 2px 0px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #E3F6FF",
       },
 
       blur: {
-        xs: '2px',
+        xs: "2px",
       },
 
       fontSize: {
-        "display-2xl": [
-          (72 / 16).toString() + "rem",
-          {
-            lineHeight: (90 / 16).toString() + "rem",
-            letterSpacing: (-2 / 16).toString() + "rem",
-          },
+        "20xl": [
+          "4.5rem",
+          { lineHeight: "5.625rem", letterSpacing: "-0.125rem" },
         ],
-        "display-xl": [
-          (60 / 16).toString() + "rem",
-          {
-            lineHeight: (72 / 16).toString() + "rem",
-            letterSpacing: (-2 / 16).toString() + "rem",
-          },
+        "18xl": [
+          "3.75rem",
+          { lineHeight: "4.5rem", letterSpacing: "-0.125rem" },
         ],
-        "display-lg": [
-          (48 / 16).toString() + "rem",
-          {
-            lineHeight: (60 / 16).toString() + "rem",
-            letterSpacing: (-2 / 16).toString() + "rem",
-          },
+        "16xl": ["3rem", { lineHeight: "3.75rem", letterSpacing: "-0.125rem" }],
+        "14xl": [
+          "2.25rem",
+          { lineHeight: "2.75rem", letterSpacing: "-0.125rem" },
         ],
-        "display-md": [
-          (36 / 16).toString() + "rem",
-          {
-            lineHeight: (44 / 16).toString() + "rem",
-            letterSpacing: (-2 / 16).toString() + "rem",
-          },
-        ],
-        "display-sm": [
-          (30 / 16).toString() + "rem",
-          {
-            lineHeight: (38 / 16).toString() + "rem",
-          },
-        ],
-        "display-xs": [
-          (24 / 16).toString() + "rem",
-          {
-            lineHeight: (32 / 16).toString() + "rem",
-          },
-        ],
-        "text-xl": [
-          (20 / 16).toString() + "rem",
-          {
-            lineHeight: (30 / 16).toString() + "rem",
-          },
-        ],
-        "text-lg": [
-          (18 / 16).toString() + "rem",
-          {
-            lineHeight: (28 / 16).toString() + "rem",
-          },
-        ],
-        "text-md": [
-          (16 / 16).toString() + "rem",
-          {
-            lineHeight: (24 / 16).toString() + "rem",
-          },
-        ],
-        "text-sm": [
-          (14 / 16).toString() + "rem",
-          {
-            lineHeight: (20 / 16).toString() + "rem",
-          },
-        ],
-        "text-xs": [
-          (12 / 16).toString() + "rem",
-          {
-            lineHeight: (18 / 16).toString() + "rem",
-          },
-        ],
+        "12xl": ["1.875rem", { lineHeight: "2.375rem" }],
+        "10xl": ["1.5rem", { lineHeight: "2rem" }],
+        "5xl": ["1.25rem", { lineHeight: "1.875rem" }],
+        "4xl": ["1.125rem", { lineHeight: "1.75rem" }],
+        "3xl": ["1rem", { lineHeight: "1.5rem" }],
+        "2xl": ["0.875rem", { lineHeight: "1.25rem" }],
+        xl: ["0.75rem", { lineHeight: "1.125rem" }],
       },
       fontWeight: {
         regular: "400",
@@ -193,4 +143,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
