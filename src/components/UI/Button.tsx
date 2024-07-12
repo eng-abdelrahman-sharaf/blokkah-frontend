@@ -19,7 +19,7 @@ export default function Button(props: ButtonProps) {
 }
 
 interface AVButtonProps extends Omit<ButtonProps,"className">{
-  variation: "primary"|"secondary";  
+  variation: "primary" | "secondary";  
 }
 
 export const AVButton = (props: AVButtonProps) => {

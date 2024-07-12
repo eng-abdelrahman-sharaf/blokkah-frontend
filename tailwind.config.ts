@@ -174,6 +174,9 @@ const config: Config = {
         semibold: "600",
         bold: "700",
       },
+      spacing: {
+        "desktop-card-width": "30.5rem",
+      },
     },
   },
   plugins: [],

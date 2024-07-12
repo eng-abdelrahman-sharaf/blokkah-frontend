@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  font-size: 16px !important;
+}
+
 * {
-  font-family: "Cairo", sans-serif;
+  font-family: "Cairo", sans-serif !important;
 }
