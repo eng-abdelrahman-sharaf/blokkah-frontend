@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/app/lib/utils";
+import { fontSizesAliases } from "@/app/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -7,7 +8,7 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col overflow-hidden gap-8 w-desktop-card-width items-center", className)}
+    className={cn("flex flex-col gap-8 w-desktop-card-width items-center", className)}
     {...props}
   />
 ));
@@ -25,7 +26,7 @@ const CardChildContainer = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex flex-col gap-6 items-center", className)} {...props} />
+  <div ref={ref} className={cn("flex flex-col gap-6 items-center w-full", className)} {...props} />
 ));
 CardChildContainer.displayName = "CardChildContainer";
 
@@ -44,7 +45,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "text-gray-900 text-display-sm font-bold text-center align-top",
+      `text-gray-900 ${fontSizesAliases["display-sm"]} font-bold text-center align-top`,
       className
     )}
     {...props}
@@ -59,7 +60,7 @@ const CardDescription = React.forwardRef<
   <p
     ref={ref}
     className={cn(
-    "text-center font-regular  align-top  text-Gray-600 text-display-2xl ",
+    `text-center font-regular  align-top  text-Gray-600 ${fontSizesAliases["text-lg"]}`,
       className
     )}
     {...props}

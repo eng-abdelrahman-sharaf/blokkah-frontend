@@ -4,6 +4,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/app/lib/utils";
 
+const className = "w-5 "
+
 const buttonVariants = cva(
   "inline-flex  items-center justify-center whitespace-nowrap rounded-lg border  font-semibold  transition-colors  disabled:pointer-events-none gap-2",
   {
@@ -22,11 +24,11 @@ const buttonVariants = cva(
             disabled:bg-white disabled:text-Gray-300 disabled:border-Gray-200",
       },
       size: {
-        sm: "py-2 px-[0.875rem]",
-        md: "py-[0.625rem] px-4",
-        lg: "py-[0.625rem] px-[1.125rem]",
-        xl: "py-3 px-5",
-        "2xl": "py-4  px-7",
+        sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
+        md: "py-[0.625rem] px-4 [&>*:first-child]:w-5",
+        lg: "py-[0.625rem] px-[1.125rem] [&>*:first-child]:w-5",
+        xl: "py-3 px-5 [&>*:first-child]:w-5",
+        "2xl": "py-4  px-7  [&>*:first-child]:w-6",
       },
       icon: {
         leading: "",
