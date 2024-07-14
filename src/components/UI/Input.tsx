@@ -25,11 +25,11 @@ interface IInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 
 }
 
 const inputVariants = cva(
-    "flex items-center gap-2 shadow-sm border border-Gray-300 px-4 w-full text-Gray-500 rounded-lg bg-transparent focus-within:shadow-activeElementBoxShadow focus-within:border-Brand-300 focus:outline-none",
+    "flex items-center gap-2 shadow-sm border border-Gray-300 px-4 w-full text-Gray-500 rounded-lg bg-transparent focus-within:shadow-activeElementBoxShadow focus-within:border-Brand-300",
     {
         variants: {
             error: {
-                true: "border-Error-300",
+                true: "border-Error-300 [&:has(input[aria-invalid=true])]:border-Error-300",
                 false: ""
             },
             inputType: {
@@ -124,7 +124,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(({
 
             {(errorMessage || hintMessage) ?
                 (
-                    <div className={cn('text-sm font-medium mt-[6px]', errorMessage && 'text-Error-500', hintMessage && 'text-Gray-600')}>
+                    <div className={cn('text-sm font-medium mt-[6px]', { 'text-Error-500': errorMessage }, { 'text-Gray-600': hintMessage })}>
                         {errorMessage ? errorMessage : null}
                         {hintMessage ? hintMessage : null}
                     </div>
