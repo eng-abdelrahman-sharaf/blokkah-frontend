@@ -1,8 +1,11 @@
+import OTPForm from '@/components/auth/OTPForm'
 import React from 'react'
 
 const page = () => {
     return (
-        <div>Account Verification</div>
+        <div>
+            <OTPForm />
+        </div>
     )
 }
 
