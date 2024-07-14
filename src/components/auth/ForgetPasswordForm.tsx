@@ -9,7 +9,9 @@ import { Mail } from '@/components/icons';
 
 import { useAuthContext } from '@/context/AuthContext';
 
-import { forgetPasswordRequestHandler } from '@/actions';
+import { backToLoginHandler, forgetPasswordRequestHandler } from '@/actions';
+import { Button } from '../UI/Button';
+import Arrow from '../icons/Arrow';
 
 const ForgetPasswordForm = () => {
     const { email, setEmail } = useAuthContext();
@@ -27,17 +29,32 @@ const ForgetPasswordForm = () => {
                             id='login_email_input'
                             label='Email'
                             placeholder='admin@blokka.io'
-                            type={InputType.email}
-                            startIcon={<Mail />}
+                            inputType={InputType.email}
+                            startComponent={<Mail />}
                             name='email-input'
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
                         />
                     </div>
                     <div className="buttons-wrapper">
-                        {/* dummy buttons until the UI button component is ready */}
-                        <button type='submit' className='w-full h-[48px] rounded-lg bg-Brand-600 text-Gray-25'>Find My Account</button>
-                        <button className='w-full h-[48px] rounded-lg text-Gray-700 border border-Gray-300'>Back To Login</button>
+                        <Button
+                            size={'2xl'}
+                            type='submit'
+                            variant={'primary'}
+                            className='w-full'
+                        >
+                            Find My Account
+                        </Button>
+                        <Button
+                            variant={'secondaryGray'}
+                            size={'2xl'}
+                            type='submit'
+                            icon={'leading'}
+                            formAction={backToLoginHandler}
+                            className='w-full'
+                        >
+                            Back To Login
+                        </Button>
                     </div>
                 </form>
             </div>
