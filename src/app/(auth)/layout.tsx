@@ -2,6 +2,7 @@ import { AuthContextProvider } from "@/context/AuthContext";
 import type { Metadata } from "next";
 
 import './authentication.css';
+import CopyRightBadge from "@/components/CopyRightBadge";
 
 export const metadata: Metadata = {
     title: "Authentication",
@@ -14,11 +15,16 @@ export default function AuthLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="w-full min-h-screen flex items-center justify-center bg-[url('/assets/DashAuthPagesBg.svg')]">
-            <div className="max-w-[488px] w-full">
+        <div className="w-full h-full flex flex-col items-center justify-center gap-10 bg-[url('/assets/DashAuthPagesBg.svg')]">
+            <div className="flex items-center justify-center lg:block max-w-[488px] w-full flex-grow">
                 <AuthContextProvider>
-                    {children}
+                    <div className="mt-16 lg:mt-32 xl:mt-40 2xl:mt-52 w-full">
+                        {children}
+                    </div>
                 </AuthContextProvider>
+            </div>
+            <div className="flex items-center justify-center pb-12">
+                <CopyRightBadge />
             </div>
         </div>
     );
