@@ -8,6 +8,7 @@ const Logo = () => {
             viewBox="0 0 149 56"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className='max-w-[149px] max-h-[56px] w-full h-full'
         >
             <path
                 d="M11.0819 25.24V30.4H5.92189H0.761883V25.24V20.08H5.92189H11.0819V25.24Z"
