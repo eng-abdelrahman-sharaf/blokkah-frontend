@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className={`${cairo.className} min-h-screen h-screen overflow-y-auto w-screen overflow-x-hidden px-4`}>
+        <div className={`${cairo.className} min-h-screen h-screen overflow-y-auto w-screen overflow-x-hidden`}>
           {children}
         </div>
       </body>
