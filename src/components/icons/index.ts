@@ -1,6 +1,12 @@
 export { default as AlertCircle } from "./AlertCircle";
+export { default as Arrow } from "./Arrow";
+export { default as Chevron } from "./Chevron";
 export { default as Eye } from "./Eye";
 export { default as EyeOff } from "./EyeOff";
+export { default as Home } from "./Home";
 export { default as Lock } from "./Lock";
 export { default as Logo } from "./Logo";
+export { default as Logout } from "./Logout";
 export { default as Mail } from "./Mail";
+export { default as Plus } from "./Plus";
+export { default as Save } from "./Save";
