@@ -1,9 +1,12 @@
-'use client'
+import React, { ReactNode, forwardRef } from 'react';
 
-import React, { ChangeEventHandler, ReactNode, forwardRef, KeyboardEventHandler } from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from "@/app/lib/utils";
+
 import AlertCircle from '@/components/icons/AlertCircle';
 
 export enum InputType {
+    default = 'default',
     text = 'text',
     email = 'email',
     password = 'password',
@@ -11,116 +14,127 @@ export enum InputType {
     otp = 'otp'
 }
 
-interface InputInterface {
-    id: string;
+interface IInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'>, VariantProps<typeof inputVariants> {
     label?: string;
-    type: InputType;
-    placeholder?: string;
-    disabled?: boolean;
+    startComponent?: ReactNode;
+    endComponent?: ReactNode;
+    hintMessage?: string;
     error?: boolean;
-    startIcon?: ReactNode;
-    endIcon?: ReactNode;
-    hint?: boolean;
-    name: string;
-    value?: string;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-    onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
-    onEndIconClick?: () => void;
+    errorMessage?: string;
+    inputType?: 'text' | 'email' | 'password' | 'number' | 'otp';
 }
 
-const Input = forwardRef<HTMLInputElement, InputInterface>(({
+const inputVariants = cva(
+    "flex items-center gap-2 shadow-sm border border-Gray-300 px-4 w-full text-Gray-500 rounded-lg bg-transparent focus-within:shadow-inputFocusedBoxShadow focus-within:border-Brand-300 focus:outline-none",
+    {
+        variants: {
+            error: {
+                true: "border-Error-300",
+                false: ""
+            },
+            inputType: {
+                text: "",
+                email: "",
+                password: "",
+                number: "",
+                otp: "max-w-[48px] max-h-[48px] px-1 sm:max-w-[64px] sm:max-h-[64px] w-full h-full sm:px-2 py-[2px]"
+            }
+        },
+        defaultVariants: {
+            error: false,
+            inputType: 'text'
+        },
+    }
+);
+
+const inputFieldVariants = cva(
+    "flex-grow py-3 border-none outline-none focus:outline-none text-Gray-900 placeholder:text-Gray-500 text-md font-regular",
+    {
+        variants: {
+            disabled: {
+                true: "bg-Gray-50",
+                false: ""
+            },
+            inputType: {
+                otp: "w-full h-full text-10xl sm:text-16xl font-medium text-center",
+                text: "",
+                email: "",
+                password: "",
+                number: "",
+                default: ""
+            }
+        },
+        defaultVariants: {
+            disabled: false,
+            inputType: 'default'
+        },
+    }
+);
+
+const Input = forwardRef<HTMLInputElement, IInputProps>(({
     id,
     label,
-    type,
-    placeholder,
-    disabled = false,
+    startComponent,
+    endComponent,
     error,
-    startIcon,
-    endIcon,
-    hint,
-    name,
-    value,
-    onChange,
-    onKeyDown,
-    onEndIconClick,
+    hintMessage,
+    errorMessage,
+    inputType = 'text',
+    ...props
 }, ref) => {
 
     return (
-        <div className="flex flex-col items-start w-full">
-            {label && (
+        <div className="flex flex-col items-start w-full bg-white">
+            {/* input label */}
+            {label ? (
                 <label
                     htmlFor={id}
                     className="text-Gray-700 text-sm font-medium mb-[6px]"
                 >
                     {label}
                 </label>
-            )}
-            <div className="relative w-full bg-white">
-                {type !== InputType.otp && startIcon && (
-                    <div className="absolute left-[14px] top-1/2 -translate-y-1/2 text-gray-400 z-10 max-w-[20px] max-h-[20px]">
-                        {startIcon}
-                    </div>
-                )}
+            ) : null}
+
+            {/* input container */}
+            <div className={cn(inputVariants({ error, inputType }), "relative w-full input-container transition-shadow transition-colors")}>
+                {/* start icon */}
+                {startComponent ? (startComponent) : null}
+
+                {/* input field */}
                 <input
                     ref={ref}
                     aria-invalid={error}
-                    type={type === InputType.otp ? 'text' : type}
-                    id={id}
-                    name={name}
-                    className={`
-                        ${type === InputType.otp ? '' : startIcon ? 'pl-[42px]' : 'pl-[14px]'}
-                        ${type === InputType.otp ? 'pl-2' : endIcon ? 'pr-[42px]' : 'pr-[14px]'}
-                        ${type === InputType.otp ? 'text-center max-h-[64px] max-w-[64px] text-[48px] p-2' : 'py-3'}
-                        w-full
-                        ${type === InputType.otp && disabled ? null : 'border'}
-                        ${error ? 'border-Error-300' : 'border-Gray-300 focus:border-Brand-300'}
-                        text-Gray-500
-                        rounded-lg
-                        focus:outline-none
-                        ${type === InputType.otp && disabled ? null : 'shadow-inputBoxShadow'}
-                        focus:shadow-inputFocusedBoxShadow
-                        transition-shadow
-                        transition-colors
-                        bg-white
-                    `}
-                    placeholder={placeholder}
-                    disabled={disabled}
-                    value={type === InputType.otp ? (isNaN(parseInt(value as string)) ? '' : parseInt(value as string)) : value}
-                    onChange={onChange}
-                    onKeyDown={onKeyDown}
-                    maxLength={type === InputType.otp ? 1 : undefined}
-                    minLength={type === InputType.otp ? 1 : undefined}
+                    className={cn(inputFieldVariants({ disabled: props.disabled, inputType }))}
+                    type={inputType}
+                    {...props}
                 />
 
-                {type !== InputType.otp && (error ? (
-                    <div className="absolute right-[14px] top-1/2 -translate-y-1/2 text-gray-400 z-10 max-w-[20px] max-h-[20px]">
-                        <div title='error message'>
-                            <AlertCircle />
-                        </div>
-                    </div>
-                ) : endIcon && (
-                    <div
-                        onClick={onEndIconClick}
-                        className="absolute right-[14px] top-1/2 -translate-y-1/2 text-gray-400 z-10 max-w-[20px] max-h-[20px] cursor-pointer"
-                    >
-                        {endIcon}
-                    </div>
-                ))}
+                {/* end icon */}
+                {(error || endComponent) ?
+                    (
+                        error ? (
+                            <div title={errorMessage} className='max-w-[20px] max-h-[20px]'>
+                                <AlertCircle />
+                            </div>
+                        ) : (endComponent ? endComponent : null)
+                    )
+                    : null
+                }
             </div>
-            {error && (
-                <div className="text-Brand-100 text-sm font-medium mt-[6px]">
-                    Error message
-                </div>
-            )}
-            {hint && (
-                <div className="text-Gray-500 text-sm font-medium mt-[6px]">
-                    Hint message
-                </div>
-            )}
+
+            {(errorMessage || hintMessage) ?
+                (
+                    <div className={cn('text-sm font-medium mt-[6px]', errorMessage && 'text-Error-500', hintMessage && 'text-Gray-600')}>
+                        {errorMessage ? errorMessage : null}
+                        {hintMessage ? hintMessage : null}
+                    </div>
+                )
+                : null
+            }
         </div>
     );
 });
 
 Input.displayName = 'Input';
 
-export default Input;
+export default React.memo(Input);
