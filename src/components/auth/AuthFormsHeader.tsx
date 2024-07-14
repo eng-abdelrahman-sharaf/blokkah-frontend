@@ -19,6 +19,7 @@ const AuthFormsHeader: React.FC<{ formType: string, email?: string }> = ({ formT
 
     return (
         <AuthFormsHeaderWrapper>
+            <h1 className='text-[30px] text-center leading-[38px] font-bold text-[#002949]'>{authFormTypes[formType].title}</h1>
             {authFormTypes[formType].parargraphElement}
         </AuthFormsHeaderWrapper>
     )
@@ -32,8 +33,6 @@ const AuthFormsHeaderWrapper: React.FC<{ children: ReactNode }> = ({ children })
         <div className='flex flex-col items-center gap-6 w-full'>
             <Logo />
             <div className='text-center'>
-                <h1 className='text-[30px] text-center leading-[38px] font-bold text-[#002949]'>Log in to your account</h1>
-                {/* <p className='text-[#475467] text-lg leading-7'>Welcome back! Please enter your details.</p> */}
                 {children}
             </div>
         </div>
