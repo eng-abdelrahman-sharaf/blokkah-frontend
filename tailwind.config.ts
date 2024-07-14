@@ -100,7 +100,7 @@ const config: Config = {
         "3xl": "0px 32px 64px -12px rgba(16, 24, 40, 0.14)",
 
         inputBoxShadow: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
-        inputFocusedBoxShadow:
+        activeElementBoxShadow:
           "0px 1px 2px 0px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #E3F6FF",
       },
 
