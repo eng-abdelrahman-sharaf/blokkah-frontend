@@ -23,11 +23,14 @@ const AboutBlokkah: React.FC<{ aboutUs?: string, termsOfConditions?: string }> =
         title='About Blokkah'
         description='We have missed you.'
         CTA={
-          <Button size={'md'} type='submit' className='w-fit'>
-            <div className='flex items-center gap-2'>
-              <Save />
-              <p>Save Changes</p>
-            </div>
+          <Button
+            size={'md'}
+            type='submit'
+            icon='leading'
+            customIconComponent={<Save />}
+            className='w-fit'
+          >
+            Save Changes
           </Button>
         }
       />

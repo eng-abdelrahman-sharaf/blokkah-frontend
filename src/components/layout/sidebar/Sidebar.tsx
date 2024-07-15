@@ -3,9 +3,10 @@ import React from 'react'
 import SidebarNav from './SidebarNav'
 import ProfileTab from './ProfileTab'
 
-import { Logo } from '@/components/icons'
+import { Logo, Settings } from '@/components/icons'
 
 import { Button } from '@/components/UI/Button'
+import { Users } from '@/components/icons'
 
 const Sidebar = () => {
     return (
@@ -17,12 +18,20 @@ const Sidebar = () => {
                 <SidebarNav />
             </div>
             <div className='flex flex-col items-center gap-6 w-full'>
-                <div className='w-full'>
-                    <Button className='mb-2'>
-                        asdf
+                <div className='flex flex-col items-center gap-2 w-full'>
+                    <Button
+                        icon={'leading'}
+                        customIconComponent={<Users />}
+                        className='bg-transparent border-transparent hover:bg-Brand-600 transition-colors justify-start gap-3'
+                    >
+                        Team Members
                     </Button>
-                    <Button>
-                        asdf
+                    <Button
+                        icon={'leading'}
+                        customIconComponent={<Settings />}
+                        className='bg-transparent border-transparent hover:bg-Brand-600 transition-colors justify-start gap-3'
+                    >
+                        Account Settings
                     </Button>
                 </div>
                 <hr className='bg-Gray-700 w-full' />

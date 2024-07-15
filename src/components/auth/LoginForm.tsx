@@ -60,7 +60,6 @@ const LoginForm = () => {
                     size={'2xl'}
                     type='submit'
                     variant={'primary'}
-                    className='w-full'
                 >
                     Sign in
                 </Button>

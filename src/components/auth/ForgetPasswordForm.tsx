@@ -41,7 +41,6 @@ const ForgetPasswordForm = () => {
                             size={'2xl'}
                             type='submit'
                             variant={'primary'}
-                            className='w-full'
                         >
                             Find My Account
                         </Button>
@@ -50,8 +49,8 @@ const ForgetPasswordForm = () => {
                             size={'2xl'}
                             type='submit'
                             icon={'leading'}
+                            customIconComponent={<Arrow />}
                             formAction={backToLoginHandler}
-                            className='w-full'
                         >
                             Back To Login
                         </Button>

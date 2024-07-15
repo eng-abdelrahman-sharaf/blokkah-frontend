@@ -67,8 +67,9 @@ const OTPForm: React.FC = () => {
                         size={'2xl'}
                         type='submit'
                         icon={'leading'}
+                        customIconComponent={<Arrow />}
                         formAction={backToLoginHandler}
-                        className='w-full'
+                        className='w-full justify-center'
                     >
                         Back To Login
                     </Button>
