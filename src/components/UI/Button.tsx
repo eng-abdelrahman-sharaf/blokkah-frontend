@@ -7,7 +7,7 @@ import { cn } from "@/app/lib/utils";
 const className = "w-5 "
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none gap-2",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full",
   {
     variants: {
       variant: {
@@ -50,7 +50,9 @@ export interface ButtonProps
   VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   iconSrc?: string;
+  customIconComponent?: React.ReactNode;
 }
+
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -60,6 +62,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon,
       size,
       iconSrc = undefined,
+      customIconComponent = null,
       asChild = false,
       ...props
     },
@@ -67,11 +70,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const Comp = asChild ? Slot : "button";
     const variants = { variant, size, icon, className };
+
     return asChild ? (
       <Comp className={cn(buttonVariants(variants))} ref={ref} {...props} />
     ) : (
       <Comp className={cn(buttonVariants(variants))} ref={ref} {...props}>
-        <img src={iconSrc} alt="icon" />
+        <div>
+          {customIconComponent ? customIconComponent : null}
+          {iconSrc ? <img src={iconSrc} alt="icon" /> : null}
+        </div>
         <span>{props.children}</span>
       </Comp>
     );
