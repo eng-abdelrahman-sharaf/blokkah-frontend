@@ -10,3 +10,5 @@ export { default as Logout } from "./Logout";
 export { default as Mail } from "./Mail";
 export { default as Plus } from "./Plus";
 export { default as Save } from "./Save";
+export { default as Settings } from "./Settings";
+export { default as Users } from "./Users";
