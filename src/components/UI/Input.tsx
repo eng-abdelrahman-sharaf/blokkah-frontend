@@ -21,6 +21,7 @@ interface IInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 
     hintMessage?: string;
     error?: boolean;
     errorMessage?: string;
+    placeholder?: string;
     inputType?: 'text' | 'email' | 'password' | 'number' | 'otp';
 }
 

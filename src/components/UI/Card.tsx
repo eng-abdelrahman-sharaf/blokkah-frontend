@@ -8,7 +8,7 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col gap-8 w-desktop-card-width items-center", className)}
+    className={cn("flex flex-col gap-8 w-[30.5rem] items-center", className)}
     {...props}
   />
 ));
@@ -45,7 +45,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      `text-gray-900 ${fontSizesAliases["display-sm"]} font-bold text-center align-top`,
+      `text-Gray-900 ${fontSizesAliases["display-sm"]} font-bold text-center align-top`,
       className
     )}
     {...props}
