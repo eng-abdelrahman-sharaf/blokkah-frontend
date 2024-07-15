@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 const colors = {
   Success: {
-    "600":"#039855"
+    "600": "#039855",
   },
   Gray: {
     "25": "#FCFCFD",
@@ -43,7 +43,7 @@ const colors = {
     "800": "#912018",
     "900": "#7A271A",
   },
-}
+};
 
 const config: Config = {
   content: [
@@ -72,6 +72,20 @@ const config: Config = {
       blur: {
         xs: "2px",
       },
+
+      // fontSize: {
+      //   "20xl": ["72px", { lineHeight: "90px", letterSpacing: "-2px" }],
+      //   "18xl": ["60px", { lineHeight: "72px", letterSpacing: "-2px" }],
+      //   "16xl": ["48px", { lineHeight: "60px", letterSpacing: "-2px" }],
+      //   "14xl": ["36px", { lineHeight: "44px", letterSpacing: "-2px" }],
+      //   "12xl": ["30px", { lineHeight: "38px" }],
+      //   "10xl": ["24px", { lineHeight: "32px" }],
+      //   "5xl": ["20px", { lineHeight: "30px" }],
+      //   "4xl": ["18px", { lineHeight: "28px" }],
+      //   "3xl": ["16px", { lineHeight: "24px" }],
+      //   "2xl": ["14px", { lineHeight: "20px" }],
+      //   xl: ["12px", { lineHeight: "18px" }],
+      // },
 
       fontSize: {
         "20xl": [
