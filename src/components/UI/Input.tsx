@@ -11,7 +11,8 @@ export enum InputType {
     email = 'email',
     password = 'password',
     number = 'number',
-    otp = 'otp'
+    otp = 'otp',
+    selector = 'selector'
 }
 
 interface IInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'>, VariantProps<typeof inputVariants> {
@@ -21,7 +22,7 @@ interface IInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 
     hintMessage?: string;
     error?: boolean;
     errorMessage?: string;
-    inputType?: 'text' | 'email' | 'password' | 'number' | 'otp';
+    inputType?: 'text' | 'email' | 'password' | 'number' | 'otp' | 'selector';
 }
 
 const inputVariants = cva(
@@ -37,7 +38,8 @@ const inputVariants = cva(
                 email: "",
                 password: "",
                 number: "",
-                otp: "max-w-[48px] max-h-[48px] px-1 sm:max-w-[64px] sm:max-h-[64px] w-full h-full sm:px-2 py-[2px]"
+                otp: "max-w-[48px] max-h-[48px] px-1 sm:max-w-[64px] sm:max-h-[64px] w-full h-full sm:px-2 py-[2px]",
+                selector: ""
             }
         },
         defaultVariants: {
@@ -61,7 +63,8 @@ const inputFieldVariants = cva(
                 email: "",
                 password: "",
                 number: "",
-                default: ""
+                default: "",
+                selector: ""
             }
         },
         defaultVariants: {
@@ -84,8 +87,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(({
 }, ref) => {
 
     return (
-        <div className="flex flex-col items-start w-full bg-white">
-            {/* input label */}
+        <div className="flex flex-col items-start w-full bg-white relative">
             {label ? (
                 <label
                     htmlFor={id}
@@ -95,12 +97,9 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(({
                 </label>
             ) : null}
 
-            {/* input container */}
-            <div className={cn(inputVariants({ error, inputType }), "relative w-full input-container transition-shadow transition-colors")}>
-                {/* start icon */}
+            <div className={cn(inputVariants({ error, inputType }), "relative w-full input-container transition-shadow transition-colors")} ref={ref}>
                 {startComponent ? (startComponent) : null}
 
-                {/* input field */}
                 <input
                     ref={ref}
                     aria-invalid={error}
@@ -109,28 +108,21 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(({
                     {...props}
                 />
 
-                {/* end icon */}
-                {(error || endComponent) ?
-                    (
-                        error ? (
-                            <div title={errorMessage} className='max-w-[20px] max-h-[20px]'>
-                                <AlertCircle />
-                            </div>
-                        ) : (endComponent ? endComponent : null)
-                    )
-                    : null
-                }
+                {(error || endComponent) ? (
+                    error ? (
+                        <div title={errorMessage} className='max-w-[20px] max-h-[20px]'>
+                            <AlertCircle />
+                        </div>
+                    ) : (endComponent ? endComponent : null)
+                ) : null}
             </div>
 
-            {(errorMessage || hintMessage) ?
-                (
-                    <div className={cn('text-sm font-medium mt-[6px]', { 'text-Error-500': errorMessage }, { 'text-Gray-600': hintMessage })}>
-                        {errorMessage ? errorMessage : null}
-                        {hintMessage ? hintMessage : null}
-                    </div>
-                )
-                : null
-            }
+            {(errorMessage || hintMessage) ? (
+                <div className={cn('text-sm font-medium mt-[6px]', { 'text-Error-500': errorMessage }, { 'text-Gray-600': hintMessage })}>
+                    {errorMessage ? errorMessage : null}
+                    {hintMessage ? hintMessage : null}
+                </div>
+            ) : null}
         </div>
     );
 });
