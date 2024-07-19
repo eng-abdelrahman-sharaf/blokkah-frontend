@@ -16,12 +16,16 @@ const buttonVariants = cva(
             hover:bg-Brand-700\
             active:bg-Brand-600\
             disabled:bg-Brand-200",
-
         secondaryGray:
           "bg-white  text-Gray-700 shadow-xs border-Gray-300\
             hover:bg-Gray-50  hover:text-Gray-800\
             active:bg-white\
             disabled:bg-white disabled:text-Gray-300 disabled:border-Gray-200",
+        error:
+          "bg-Error-600 shadow-xs border-Error-600 text-white\
+            hover:bg-Error-700\
+            active:bg-Error-700\
+            disabled:bg-Error-200 disabled:text-Gray-300 disabled:border-Error-200",
       },
       size: {
         sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
