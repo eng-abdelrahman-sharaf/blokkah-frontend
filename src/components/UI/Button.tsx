@@ -4,7 +4,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/app/lib/utils";
 
-const className = "w-5 "
+//TODO - delete this line
+const className = "shadow-activeElementBoxShadow  transition-all scale-95 py-7";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full",
@@ -14,12 +15,12 @@ const buttonVariants = cva(
         primary:
           "bg-Brand-600 text-white shadow-xs border-Brand-600\
             hover:bg-Brand-700\
-            active:bg-Brand-600\
+              active:bg-Brand-600 active:shadow-[0px_0px_0px_4px_rgba(227,246,255,1),0px_1px_2px_0px_rgba(16,24,40,0.05)]\
             disabled:bg-Brand-200",
         secondaryGray:
           "bg-white  text-Gray-700 shadow-xs border-Gray-300\
             hover:bg-Gray-50  hover:text-Gray-800\
-            active:bg-white\
+            active:bg-white active:shadow-[0px_0px_0px_4px_rgba(242,244,247,1),0px_1px_2px_0px_rgba(16,24,40,0.05)]\
             disabled:bg-white disabled:text-Gray-300 disabled:border-Gray-200",
         error:
           "bg-Error-600 shadow-xs border-Error-600 text-white\
@@ -32,7 +33,7 @@ const buttonVariants = cva(
         md: "py-[0.625rem] px-4 [&>*:first-child]:w-5",
         lg: "py-[0.625rem] px-[1.125rem] [&>*:first-child]:w-5",
         xl: "py-3 px-5 [&>*:first-child]:w-5",
-        "2xl": "py-3 px-5 [&>*:first-child]:w-6",
+        "2xl": "py-4 px-7 [&>*:first-child]:w-6",
       },
       icon: {
         leading: "",
@@ -51,12 +52,11 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   iconSrc?: string;
   customIconComponent?: React.ReactNode;
 }
-
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
