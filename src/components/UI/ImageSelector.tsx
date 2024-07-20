@@ -69,7 +69,7 @@ const ImageSelector: React.FC<ImageSelectorProps> = ({ isImagePreview = false, i
         <React.Fragment>
             <div className={
                 cn(
-                    "max-w-[498px] w-full max-h-[200px] h-full flex items-center justify-center border border-Gray-200 rounded-lg overflow-hidden",
+                    "max-w-[32.5rem] w-full max-h-[200px] h-full flex items-center justify-center border border-Gray-200 rounded-lg overflow-hidden",
                     { 'px-6 py-4 max-w-[370px]': imageSrc },
                     { 'p-5': isImagePreview },
                     { 'px-6 py-4': !preview }
