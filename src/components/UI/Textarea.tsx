@@ -13,7 +13,7 @@ interface ITextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaE
 }
 
 const textAreaVariants = cva(
-    "flex items-center gap-2 shadow-sm border px-4 py-3 text-Gray-900 placeholder:text-Gray-500 rounded-lg bg-white focus:shadow-activeElementBoxShadow outline-none focus:outline-none font-regular text-3xl transition-colors transition-shadow",
+    "flex items-center gap-2 shadow-sm border px-4 py-3 text-Gray-900 placeholder:text-Gray-500 rounded-lg bg-white focus:shadow-activeElementBoxShadow outline-none focus:outline-none font-regular text-md transition-colors transition-shadow",
     {
         variants: {
             error: {
