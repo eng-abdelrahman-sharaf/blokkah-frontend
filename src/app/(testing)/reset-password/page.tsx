@@ -1,4 +1,4 @@
-import { fontSizesAliases } from "@/app/lib/utils";
+import { fontSizesAliases } from "@/lib/utils";
 import { Button } from "@/components/UI/Button";
 import {
   Card,
@@ -26,7 +26,7 @@ const Criterion = ({
     <div className="flex gap-2">
       <CheckMark PathClassName={className} />
       <div
-        className={`text-Gray-800 ${fontSizesAliases["text-md"]} font-light`}
+        className={`text-Gray-800 text-md font-light`}
       >
         {criterion}
       </div>
@@ -51,8 +51,8 @@ export default function Home() {
         </CardChildContainer>
         <CardChildContainer className="items-stretch">
           <div className="flex gap-4 flex-col">
-            <Input inputType="password" startComponent={<Lock />} endComponent={<Eye />} label="New Passsword"  placeholder="••••••••"/>
-            <Input inputType="password" startComponent={<Lock />} endComponent={<Eye />} label="Rewrite New Password" placeholder="••••••••"/>
+            <Input inputType="password" startComponent={<Lock />} endComponent={<Eye />} label="New Passsword" placeholder="••••••••" />
+            <Input inputType="password" startComponent={<Lock />} endComponent={<Eye />} label="Rewrite New Password" placeholder="••••••••" />
           </div>
           <div className="flex flex-col gap-0 items-start">
             <Criterion

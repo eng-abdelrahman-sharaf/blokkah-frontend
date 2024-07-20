@@ -1,5 +1,6 @@
-import OTPForm from '@/components/auth/OTPForm'
 import React from 'react'
+
+import OTPForm from '@/components/auth/OTPForm'
 
 const page = () => {
     return (
@@ -9,4 +10,4 @@ const page = () => {
     )
 }
 
-export default page
+export default page;

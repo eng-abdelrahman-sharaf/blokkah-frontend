@@ -1,4 +1,5 @@
 import React from 'react'
+
 import AboutBlokkah from '@/components/pages/about-blokkah/AboutBlokkah';
 
 const page = () => {

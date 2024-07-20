@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const cairo = Cairo({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <div className={`${cairo.className} min-h-screen h-screen overflow-y-auto w-screen overflow-x-hidden`}>
           {children}
+          <Toaster position="bottom-right" />
         </div>
       </body>
     </html>

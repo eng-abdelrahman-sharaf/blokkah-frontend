@@ -1,11 +1,11 @@
-import ForgetPasswordForm from '@/components/auth/ForgetPasswordForm'
 import React from 'react'
 
-const page = () => {
+import ForgetPasswordForm from '@/components/auth/ForgetPasswordForm'
 
+const page = () => {
     return (
         <ForgetPasswordForm />
     )
 }
 
-export default page
+export default page;

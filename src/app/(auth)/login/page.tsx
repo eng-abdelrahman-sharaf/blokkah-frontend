@@ -2,7 +2,7 @@ import React from 'react';
 
 import LoginForm from '@/components/auth/LoginForm';
 
-const Page: React.FC = () => {
+const Page = () => {
     return (
         <LoginForm />
     );

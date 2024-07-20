@@ -1,4 +1,4 @@
-import { fontSizesAliases } from "@/app/lib/utils";
+import { fontSizesAliases } from "@/lib/utils";
 
 export default function Home() {
   return (
