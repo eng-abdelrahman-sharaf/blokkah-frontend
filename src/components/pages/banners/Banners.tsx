@@ -1,16 +1,20 @@
 'use client'
 
-import React from 'react'
+import React from 'react';
 
-import { Button } from '@/components/UI/Button'
-import { Plus } from '@/components/icons'
-import DashboardPagesHeader from '@/components/layout/DashboardPagesHeader'
-import { useModal } from '@/context/ModalContext'
-import NewBannerModal from '@/components/modals/NewBannerModal'
-import Image from 'next/image'
-import Trash from '@/components/icons/Trash'
-import DeleteBannerModal from '@/components/modals/DeleteBannerModal'
-import { cn } from '@/lib/utils'
+import Image from 'next/image';
+
+import { useModal } from '@/context/ModalContext';
+
+import { Trash, Plus } from '@/components/icons';
+
+import DashboardPagesHeader from '@/components/layout/DashboardPagesHeader';
+
+import NewBannerModal from '@/components/modals/NewBannerModal';
+import EditBannerModal from '@/components/modals/EditBannerModal';
+import DeleteBannerModal from '@/components/modals/DeleteBannerModal';
+
+import { cn } from '@/lib/utils';
 
 type banners = {
     bannerSrc: string;
@@ -21,9 +25,15 @@ type banners = {
 const Banners = ({ banners }: { banners?: banners[] }) => {
     const { openModal } = useModal();
 
-    const handleAddBanner = () => {
+    const handleAddNewBanner = () => {
         openModal(
             <NewBannerModal />
+        );
+    };
+
+    const handleEditBanner = () => {
+        openModal(
+            <EditBannerModal />
         );
     };
 
@@ -40,13 +50,14 @@ const Banners = ({ banners }: { banners?: banners[] }) => {
                 description='We have missed you.'
                 customIconComponent={<Plus />}
                 buttonText="Add Banners"
-                onClick={handleAddBanner}
+                onClick={handleAddNewBanner}
             />
             <div className='flex items-center gap-6 w-full flex-wrap'>
                 {banners?.map((banner, index) => (
                     <div
                         key={banner.bannerId + index}
                         className='max-w-[500px] w-full max-h-[200px] h-full rounded-lg p-5 bg-white border border-Gray-200'
+                        onClick={handleEditBanner}
                     >
                         <div className='relative w-full'>
                             <Image
@@ -57,7 +68,10 @@ const Banners = ({ banners }: { banners?: banners[] }) => {
                                 className="max-w-[460px] w-full max-h-[160px] h-full object-cover"
                             />
                             <div
-                                onClick={() => handleDeleteBanner(banner.bannerId)}
+                                onClick={(event) => {
+                                    event.stopPropagation();
+                                    handleDeleteBanner(banner.bannerId)
+                                }}
                                 className='absolute -top-2 -right-2 rounded-full bg-white p-2 flex items-center justify-center gap-2 cursor-pointer'
                             >
                                 <span className={
