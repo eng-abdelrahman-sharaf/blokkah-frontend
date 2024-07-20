@@ -1,5 +1,3 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +7,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -20,4 +18,32 @@ html {
 ::-webkit-scrollbar-thumb {
   background-color: #002949;
   border-radius: 18px;
+}
+
+.dashboard-pages-wrapper {
+  @apply w-full h-full flex flex-col items-start gap-6 md:gap-8
+}
+
+.settings-frames-wrapper {
+  @apply flex flex-col items-center gap-4 md:gap-6 w-full
+}
+
+.settings-single-frame-wrapper {
+  @apply flex flex-col md:flex-row items-start justify-start gap-4 md:gap-8 w-full
+}
+
+.settings-single-frame-text-wrapper {
+  @apply max-w-[18.875rem] w-full
+}
+
+.settings-single-frame-heading {
+  @apply text-md text-Gray-900 font-semibold
+}
+
+.settings-single-frame-text {
+  @apply text-sm text-Gray-600 font-regular
+}
+
+hr {
+  @apply bg-Gray-200 w-full
 }
