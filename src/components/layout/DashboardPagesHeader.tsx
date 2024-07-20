@@ -31,4 +31,4 @@ const DashboardPagesHeader = (
     )
 }
 
-export default DashboardPagesHeader;
+export default React.memo(DashboardPagesHeader);

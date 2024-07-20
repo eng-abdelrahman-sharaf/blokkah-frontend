@@ -2,16 +2,16 @@
 
 import React from 'react'
 
-import AuthFormsHeader from './AuthFormsHeader'
-
-import Input, { InputType } from '@/components/UI/Input'
-import { Mail } from '@/components/icons';
-
 import { useAuthContext } from '@/context/AuthContext';
 
 import { backToLoginHandler, forgetPasswordRequestHandler } from '@/actions';
-import { Button } from '../UI/Button';
-import Arrow from '../icons/Arrow';
+
+import AuthFormsHeader from './AuthFormsHeader'
+
+import Input, { InputType } from '@/components/UI/Input'
+import { Button } from '@/components/UI/Button';
+
+import { Arrow, Mail } from '@/components/icons';
 
 const ForgetPasswordForm = () => {
     const { email, setEmail } = useAuthContext();

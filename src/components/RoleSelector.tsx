@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState, useRef, useEffect, FC } from 'react';
+
 import Input from './UI/Input';
+
 import { Chevron } from './icons';
 
 interface RoleSelectorProps {
@@ -67,4 +69,4 @@ const RoleSelector: FC<RoleSelectorProps> = ({ selectList, label }) => {
     );
 };
 
-export default RoleSelector;
+export default React.memo(RoleSelector);

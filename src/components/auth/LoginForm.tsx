@@ -2,16 +2,18 @@
 
 import React, { useState } from 'react'
 
-import AuthFormsHeader from './AuthFormsHeader';
-
-import Input, { InputType } from '@/components/UI/Input';
-import { Eye, EyeOff, Lock, Mail } from '@/components/icons';
+import Link from 'next/link';
 
 import { useAuthContext } from '@/context/AuthContext';
 
 import { adminDashboardLoginHandler } from '@/actions';
+
+import AuthFormsHeader from './AuthFormsHeader';
+
+import Input, { InputType } from '@/components/UI/Input';
 import { Button } from '@/components/UI/Button';
-import Link from 'next/link';
+
+import { Eye, EyeOff, Lock, Mail } from '@/components/icons';
 
 const LoginForm = () => {
     const { email, setEmail } = useAuthContext();

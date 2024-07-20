@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Input from '@/components/UI/Input'
+
 import { Lock } from '@/components/icons'
 
 const ChangePassword = () => {
@@ -46,4 +47,4 @@ const ChangePassword = () => {
     )
 }
 
-export default ChangePassword
+export default ChangePassword;

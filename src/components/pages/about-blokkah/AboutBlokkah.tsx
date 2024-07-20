@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Textarea from '@/components/UI/Textarea';
-import { Button } from '@/components/UI/Button';
 
 import DashboardPagesHeader from '@/components/layout/DashboardPagesHeader';
 

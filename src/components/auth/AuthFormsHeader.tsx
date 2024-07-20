@@ -1,7 +1,8 @@
-import React, { ReactNode, useMemo } from 'react'
+import React, { ReactNode } from 'react'
+
 import Logo from '@/components/icons/Logo';
 
-const AuthFormsHeader: React.FC<{ formType: string, email?: string }> = ({ formType, email = 'hi@ahmed.com' }) => {
+const AuthFormsHeader: React.FC<{ formType: string, email?: string }> = React.memo(({ formType, email = 'hi@ahmed.com' }) => {
     const authFormTypes: { [key: string]: { title: string, parargraphElement: ReactNode } } = {
         'login': {
             title: 'Log in to your account',
@@ -23,7 +24,7 @@ const AuthFormsHeader: React.FC<{ formType: string, email?: string }> = ({ formT
             {authFormTypes[formType].parargraphElement}
         </AuthFormsHeaderWrapper>
     )
-}
+});
 
 export default AuthFormsHeader;
 

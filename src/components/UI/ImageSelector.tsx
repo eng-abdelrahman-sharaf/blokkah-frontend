@@ -1,8 +1,11 @@
 'use client'
 
 import React, { useState, ChangeEvent, useRef } from 'react';
+
 import Image from 'next/image';
+
 import { cn } from '@/lib/utils';
+
 import { Trash, UploadCloud } from '@/components/icons';
 
 type ImageSelectorProps = {
@@ -119,7 +122,7 @@ const ImageSelector: React.FC<ImageSelectorProps> = ({ isImagePreview = false, i
     );
 };
 
-export default ImageSelector;
+export default React.memo(ImageSelector);
 
 const ImageSelectorWrapper = () => {
     return (
