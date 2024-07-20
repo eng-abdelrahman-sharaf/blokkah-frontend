@@ -18,21 +18,12 @@ const AboutBlokkah: React.FC<{ aboutUs?: string, termsOfConditions?: string }> =
   };
 
   return (
-    <form action={handleSubmit} className='w-full h-full flex flex-col items-start gap-10'>
+    <form action={handleSubmit} className='dashboard-pages-wrapper'>
       <DashboardPagesHeader
         title='About Blokkah'
         description='We have missed you.'
-        CTA={
-          <Button
-            size={'md'}
-            type='submit'
-            icon='leading'
-            customIconComponent={<Save />}
-            className='w-fit'
-          >
-            Save Changes
-          </Button>
-        }
+        customIconComponent={<Save />}
+        buttonText="Save Changes"
       />
       <div className="flex flex-col items-start gap-4 sm:gap-6 w-full h-full">
         <div className='flex flex-col sm:flex-row items-start gap-5 sm:gap-8 w-full max-h-[12.5rem] h-full'>
