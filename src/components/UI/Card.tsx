@@ -1,6 +1,6 @@
 import React from "react";
-import { cn } from "@/app/lib/utils";
-import { fontSizesAliases } from "@/app/lib/utils";
+import { cn } from "@/lib/utils";
+import { fontSizesAliases } from "@/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -60,7 +60,7 @@ const CardDescription = React.forwardRef<
   <p
     ref={ref}
     className={cn(
-    `text-center font-regular  align-top  text-Gray-600 ${fontSizesAliases["text-lg"]}`,
+      `text-center font-regular  align-top  text-Gray-600 text-lg`,
       className
     )}
     {...props}

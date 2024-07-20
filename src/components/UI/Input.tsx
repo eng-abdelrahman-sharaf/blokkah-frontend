@@ -1,7 +1,7 @@
 import React, { ReactNode, forwardRef } from 'react';
 
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from "@/app/lib/utils";
+import { cn } from "@/lib/utils";
 
 import AlertCircle from '@/components/icons/AlertCircle';
 

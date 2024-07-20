@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/app/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface ITextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'type'>, VariantProps<typeof textAreaVariants> {
     label?: string;
