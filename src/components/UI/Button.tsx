@@ -8,7 +8,7 @@ import { cn } from "@/app/lib/utils";
 const className = "shadow-activeElementBoxShadow  transition-all scale-95 py-7";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
@@ -27,6 +27,11 @@ const buttonVariants = cva(
             hover:bg-Error-700\
             active:bg-Error-700\
             disabled:bg-Error-200 disabled:text-Gray-300 disabled:border-Error-200",
+        success:
+          "bg-Success-600 shadow-xs border-Success-600 text-white\
+            hover:bg-Success-700\
+            active:bg-Success-700\
+            disabled:bg-Success-200 disabled:text-Gray-300 disabled:border-Success-200",
       },
       size: {
         sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
@@ -52,7 +57,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   iconSrc?: string;
   customIconComponent?: React.ReactNode;
