@@ -24,7 +24,7 @@ const banners = [
 const page = () => {
     return (
         <div className='w-full h-full'>
-            <Banners banners={banners} />
+            <Banners initialBanners={banners} />
         </div>
     )
 }
