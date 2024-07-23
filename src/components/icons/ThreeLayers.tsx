@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ThreeLayers = () => {
+const ThreeLayers = ({ stroke = "#97A8B6" }: { stroke?: string }) => {
     return (
 
         <svg
@@ -12,7 +12,7 @@ const ThreeLayers = () => {
         >
             <path
                 d="M2 17L12 22L22 17M2 12L12 17L22 12M12 2L2 7L12 12L22 7L12 2Z"
-                stroke="#97A8B6"
+                stroke={stroke}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
