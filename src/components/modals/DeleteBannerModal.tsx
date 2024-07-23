@@ -1,15 +1,17 @@
 'use client'
 
 import React from 'react'
-
 import { useModal } from '@/context/ModalContext';
+import { Button } from '@/components/UI/Button';
+import { AlertCircle, XClose } from '@/components/icons';
 
-import { Button } from '@/components/UI/Button'
-
-import { AlertCircle, XClose } from '@/components/icons'
-
-const DeleteBannerModal = () => {
+const DeleteBannerModal = ({ bannerId, onDelete }: { bannerId: string, onDelete: (bannerId: string) => void }) => {
     const { closeModal } = useModal();
+
+    const handleDelete = () => {
+        onDelete(bannerId);
+        closeModal();
+    };
 
     return (
         <div className='flex flex-col items-center gap-8'>
@@ -45,6 +47,7 @@ const DeleteBannerModal = () => {
                 <Button
                     variant={'error'}
                     size='lg'
+                    onClick={handleDelete}
                 >
                     Delete
                 </Button>
@@ -53,4 +56,4 @@ const DeleteBannerModal = () => {
     )
 }
 
-export default DeleteBannerModal
+export default DeleteBannerModal;
