@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
-import "./globals.css";
+
+import { Cairo, DM_Sans } from "next/font/google";
+
+import { FormProvider } from "@/context/FormContext";
+
 import { Toaster } from "react-hot-toast";
 
-const cairo = Cairo({ subsets: ["latin"] });
+import "./globals.css";
+
+const cairo = Cairo({ subsets: ["latin"], weight: ['200', '300', '400', '500', '600', '700', '800', '900', '1000'] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
