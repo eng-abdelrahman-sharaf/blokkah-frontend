@@ -17,7 +17,7 @@ type BannerProps = {
 const Banner: React.FC<BannerProps> = ({ bannerSrc, bannerId, active, onEdit, onDelete }) => {
     return (
         <div
-            className='max-w-[500px] w-full max-h-[200px] h-full rounded-lg p-5 bg-white border border-Gray-200 cursor-pointer'
+            className='max-w-[498px] w-full max-h-[200px] h-full rounded-lg p-5 bg-white border border-Gray-200 cursor-pointer'
             onClick={onEdit}
         >
             <div className='relative w-full'>
