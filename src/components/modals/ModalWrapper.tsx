@@ -47,7 +47,7 @@ const ModalWrapper: React.FC = () => {
                 zIndex: '1000'
             }}
         >
-            <div className="max-w-[544px] w-full rounded-xl p-6 bg-white">
+            <div className="max-w-[544px] w-full rounded-xl p-6 bg-white transition-all animate-appearance-in">
                 {content}
             </div>
         </div>
