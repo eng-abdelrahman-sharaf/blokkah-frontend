@@ -47,3 +47,26 @@ html {
 hr {
   @apply bg-Gray-200 w-full
 }
+
+@keyframes appearance-in {
+  0% {
+    opacity: 0;
+    transform: translateZ(0) scale(0.95);
+  }
+
+  60% {
+    opacity: 0.75;
+    backface-visibility: hidden;
+    webkit-font-smoothing: antialiased;
+    transform: translateZ(0) scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+  }
+}
+
+.animate-appearance-in {
+  animation: appearance-in 250ms ease-out normal both;
+}
