@@ -41,7 +41,7 @@ const OTPForm: React.FC = () => {
                                 name={`otp-input-${index + 1}`}
                                 value={otp[index]}
                                 onChange={(event) => handleOnChange(event, index)}
-                                onKeyDown={(e) => handleOnKeyDown(e, index)}
+                                onKeyDown={(event) => handleOnKeyDown(event, index)}
                                 disabled={index === 3}
                                 readOnly={index === 3}
                                 minLength={1}
@@ -79,4 +79,4 @@ const OTPForm: React.FC = () => {
     );
 }
 
-export default OTPForm;
+export default OTPForm

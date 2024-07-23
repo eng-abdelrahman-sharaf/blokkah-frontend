@@ -5,9 +5,7 @@ const useOTP = (length: number) => {
     const [activeOTPIndex, setActiveOTPIndex] = useState<number>(0);
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-    const handleOnChange = ({ target }: React.ChangeEvent<HTMLInputElement>, index: number) => {
-        const { value } = target;
-
+    const handleOnChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>, index: number) => {
         // Check if the value is a number or an empty string
         if (isNaN(Number(value)) && value !== "") {
             return;
@@ -16,14 +14,14 @@ const useOTP = (length: number) => {
         const newOTP = [...otp];
         newOTP[index] = value.slice(-1);
 
-        setOtp(newOTP);
+        setOtp(prev => newOTP);
 
         if (value) {
             let nextIndex = index + 1;
             while (nextIndex < otp.length && inputRefs.current[nextIndex]?.disabled) {
                 nextIndex++;
             }
-            setActiveOTPIndex(Math.min(nextIndex, otp.length - 1));
+            setActiveOTPIndex(prev => Math.min(nextIndex, otp.length - 1));
         }
     };
 
@@ -46,7 +44,6 @@ const useOTP = (length: number) => {
         inputRefs,
         handleOnChange,
         handleOnKeyDown,
-        activeOTPIndex
     };
 };
 

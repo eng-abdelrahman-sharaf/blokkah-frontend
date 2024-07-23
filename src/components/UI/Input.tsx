@@ -58,7 +58,7 @@ const inputFieldVariants = cva(
                 false: ""
             },
             inputType: {
-                otp: "w-full h-full text-10xl sm:text-16xl font-medium text-center",
+                otp: "w-full h-full text-3xl sm:text-5xl font-medium text-center",
                 text: "",
                 email: "",
                 password: "",
@@ -97,7 +97,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(({
                 </label>
             ) : null}
 
-            <div className={cn(inputVariants({ error, inputType }), "relative w-full input-container transition-shadow transition-colors")} ref={ref}>
+            <div className={cn(inputVariants({ error, inputType }), "relative w-full input-container transition-shadow transition-colors")}>
                 {startComponent ? (startComponent) : null}
 
                 <input
