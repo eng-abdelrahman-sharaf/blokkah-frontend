@@ -6,6 +6,7 @@ import Sidebar from "@/components/layout/sidebar/Sidebar";
 import ModalWrapper from "@/components/modals/ModalWrapper";
 
 import type { Metadata } from "next";
+import { SidebarProvider } from "@/context/SidebarContext";
 
 export const metadata: Metadata = {
     title: "Dashboard",
@@ -21,7 +22,9 @@ export default function DashboardLayout({
     return (
         <div className="flex w-full h-full bg-Brand-700">
             <div className="max-w-[19.5rem] w-full">
-                <Sidebar />
+                <SidebarProvider>
+                    <Sidebar />
+                </SidebarProvider>
             </div>
             <div className="flex flex-col items-start gap-8 md:gap-10 bg-white rounded-tl-[2.5rem] flex-grow">
                 <div className="p-6 md:p-8 !pb-0">

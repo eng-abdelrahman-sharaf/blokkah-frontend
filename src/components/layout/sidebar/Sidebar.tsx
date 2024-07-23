@@ -1,12 +1,71 @@
 import React from 'react'
 
-import SidebarNav from './SidebarNav'
+import SidebarNav from './accordion/SidebarNav'
+
+import SidebarNavItem from './accordion/SidebarNavItem'
+
 import ProfileTab from './ProfileTab'
 
-import { Logo, Settings } from '@/components/icons'
+import { Logo } from '@/components/icons'
 
-import { Button } from '@/components/UI/Button'
-import { Users } from '@/components/icons'
+const SidebarNavButtons: { [key: string]: any } = {
+    'dashboard': {
+        name: 'Dashboard',
+        href: '/dashboard',
+        icon: 'Home'
+    },
+    'property-management': {
+        name: 'Property Management',
+        href: '/property-management',
+        icon: 'ThreeLayers'
+    },
+    'user-management': {
+        name: 'User Management',
+        href: '/user-management',
+        icon: 'Users',
+        isAccordion: true,
+        accordionItems: {
+            'agents-requests': {
+                name: 'Agents Requests',
+                href: '/user-management/agents-request',
+                isAccordionChild: true
+            },
+            'all-users': {
+                name: 'All Users',
+                href: '/user-management/all-users',
+                isAccordionChild: true
+            },
+        }
+    },
+    'content-management': {
+        name: 'Content Management',
+        href: '/content-management',
+        icon: 'CheckSquare',
+        isAccordion: true,
+        accordionItems: {
+            'banners': {
+                name: 'Banners',
+                href: '/content-management/banners',
+                isAccordionChild: true
+            },
+            'about-blokkah': {
+                name: 'About Blokkah',
+                href: '/content-management/about-blokkah',
+                isAccordionChild: true
+            },
+        }
+    },
+    'reports-and-complaints': {
+        name: 'Reports & Complaints',
+        href: '/reports-and-complaints',
+        icon: 'Flag'
+    },
+    'analytics': {
+        name: 'Analytics',
+        href: '/analytics',
+        icon: 'Analytics'
+    }
+}
 
 const Sidebar = () => {
     return (
@@ -15,24 +74,20 @@ const Sidebar = () => {
                 <div className='px-4 mb-10 overflow-hidden w-fit'>
                     <Logo fill='white' width={84} height={32} />
                 </div>
-                <SidebarNav />
+                <SidebarNav SidebarNavButtons={SidebarNavButtons} />
             </div>
             <div className='flex flex-col items-center gap-6 w-full'>
                 <div className='flex flex-col items-center gap-2 w-full'>
-                    <Button
-                        icon={'leading'}
-                        customIconComponent={<Users />}
-                        className='bg-transparent border-transparent hover:bg-Brand-600 transition-colors justify-start gap-3'
-                    >
-                        Team Members
-                    </Button>
-                    <Button
-                        icon={'leading'}
-                        customIconComponent={<Settings />}
-                        className='bg-transparent border-transparent hover:bg-Brand-600 transition-colors justify-start gap-3'
-                    >
-                        Account Settings
-                    </Button>
+                    <SidebarNavItem
+                        href='/team-members'
+                        linkItemName='Team Members'
+                        startIcon='Users'
+                    />
+                    <SidebarNavItem
+                        href='/account-settings/account-details'
+                        linkItemName='Account Settings'
+                        startIcon='Settings'
+                    />
                 </div>
                 <hr className='bg-Gray-700 w-full' />
                 <ProfileTab name='Ahmed Ali' email='ahmedali@works.com' />
