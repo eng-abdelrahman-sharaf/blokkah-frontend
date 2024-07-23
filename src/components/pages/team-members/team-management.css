@@ -1,0 +1,31 @@
+.user-management-table {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: auto !important;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    @apply flex items-center w-full border-b border-Gray-200
+}
+
+th,
+td {
+    @apply text-left flex items-center justify-start gap-3 w-full;
+}
+
+th {
+    @apply bg-Gray-50 text-xs text-Gray-600 font-semibold px-6 py-3;
+}
+
+td {
+    @apply px-6 py-4
+}
+
+input[type="checkbox"] {
+    @apply border border-Gray-300 rounded-md cursor-pointer;
+}
