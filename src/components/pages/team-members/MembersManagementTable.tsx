@@ -24,11 +24,11 @@ interface User {
 }
 
 const mockUserData: User[] = [
-    { id: 1, name: 'User One', email: 'userone@example.com', role: 'Admin', active: true },
-    { id: 2, name: 'User Two', email: 'usertwo@example.com', role: 'User', active: false },
-    { id: 3, name: 'User Three', email: 'userthree@example.com', role: 'User', active: true },
-    { id: 4, name: 'User Four', email: 'userfour@example.com', role: 'User', active: false },
-    { id: 5, name: 'User Five', email: 'userfive@example.com', role: 'User', active: true },
+    { id: 1, name: 'User One', email: 'ahmedali@works.com', role: 'Admin', active: true },
+    { id: 2, name: 'User Two', email: 'ahmedali@works.com', role: 'Owner', active: false },
+    { id: 3, name: 'User Three', email: 'ahmedali@works.com', role: 'Owner', active: true },
+    { id: 4, name: 'User Four', email: 'ahmedali@works.com', role: 'Admin', active: false },
+    { id: 5, name: 'User Five', email: 'ahmedali@works.com', role: 'Owner', active: true },
 ];
 
 const MembersManagementTable: FC = () => {
@@ -73,53 +73,55 @@ const MembersManagementTable: FC = () => {
     const paginatedUsers = users.slice(startIdx, endIdx);
 
     return (
-        <div className="user-management-table flex flex-col items-center justify-between max-h-[21.5rem] h-full">
-            <table className='table-auto'>
-                <thead>
-                    <tr>
-                        <th>
-                            <input
-                                type="checkbox"
-                                onChange={handleMasterCheckboxChange}
-                                checked={selectedUsers.length === paginatedUsers.length && selectedUsers.length > 0}
+        <div className='flex flex-col items-center justify-between max-h-[21.5rem] h-full w-full'>
+            <div className="w-full overflow-x-auto team-management-table">
+                <table className='table table-auto'>
+                    <thead>
+                        <tr>
+                            <th className='max-w-[12.063rem] w-full'>
+                                <input
+                                    type="checkbox"
+                                    onChange={handleMasterCheckboxChange}
+                                    checked={selectedUsers.length === paginatedUsers.length && selectedUsers.length > 0}
+                                />
+                                Name
+                            </th>
+                            <th className='flex items-center justify-start gap-1 max-w-[7.625rem] w-full'>
+                                Status
+                                <div className='-rotate-90'>
+                                    <Arrow width={16} height={16} />
+                                </div>
+                            </th>
+                            <th className='max-w-[11.5rem] w-full'>Email Address</th>
+                            <th className='flex items-center justify-start gap-1 max-w-[6.125rem] w-full'>
+                                Role
+                                <div className='-rotate-90'>
+                                    <Arrow width={16} height={16} />
+                                </div>
+                            </th>
+                            <th className='flex items-center justify-start gap-1 max-w-[11.438rem] w-full'>
+                                Creation Date
+                                <div className='-rotate-90'>
+                                    <Arrow width={16} height={16} />
+                                </div>
+                            </th>
+                            <th className='flex-grow w-full text-transparent select-none'>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {paginatedUsers.map(user => (
+                            <UserRow
+                                key={user.id}
+                                user={user}
+                                selectedUsers={selectedUsers}
+                                onCheckboxChange={handleCheckboxChange}
+                                onShowMemberCredentials={handleShowMemberCredentials}
+                                onDeleteMember={handleDeleteMember}
                             />
-                            Name
-                        </th>
-                        <th>Email Address</th>
-                        <th className='flex items-center justify-start gap-1'>
-                            Role
-                            <div className='-rotate-90'>
-                                <Arrow width={16} height={16} />
-                            </div>
-                        </th>
-                        <th className='flex items-center justify-start gap-1'>
-                            Creation Date
-                            <div className='-rotate-90'>
-                                <Arrow width={16} height={16} />
-                            </div>
-                        </th>
-                        <th className='flex items-center justify-start gap-1'>
-                            Status
-                            <div className='-rotate-90'>
-                                <Arrow width={16} height={16} />
-                            </div>
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {paginatedUsers.map(user => (
-                        <UserRow
-                            key={user.id}
-                            user={user}
-                            selectedUsers={selectedUsers}
-                            onCheckboxChange={handleCheckboxChange}
-                            onShowMemberCredentials={handleShowMemberCredentials}
-                            onDeleteMember={handleDeleteMember}
-                        />
-                    ))}
-                </tbody>
-            </table>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             <Pagination
                 users={users}
                 rowsPerPage={rowsPerPage}
@@ -140,7 +142,7 @@ interface UserRowProps {
 
 const UserRow: FC<UserRowProps> = React.memo(({ user, selectedUsers, onCheckboxChange, onShowMemberCredentials, onDeleteMember }) => (
     <tr>
-        <td className='flex items-center gap-3 text-sm text-Gray-900 font-medium whitespace-nowrap'>
+        <td className='flex items-center gap-3 text-sm text-Gray-900 font-medium whitespace-nowrap max-w-[12.063rem] w-full'>
             <input
                 type="checkbox"
                 checked={selectedUsers.includes(user.id)}
@@ -151,24 +153,24 @@ const UserRow: FC<UserRowProps> = React.memo(({ user, selectedUsers, onCheckboxC
             </div>
             {user.name}
         </td>
-        <td className='text-sm text-Gray-600 font-regular'>
-            {user.email}
-        </td>
-        <td className='text-xs text-Gray-700 font-medium'>
-            <div className='px-2 py-[0.125rem] rounded-full bg-Gray-100'>
-                {user.role}
-            </div>
-        </td>
-        <td className='text-sm text-Gray-600 font-regular whitespace-nowrap'>
-            8:00pm - 23 Aug 2023
-        </td>
-        <td className='text-sm text-Gray-600 font-regular'>
+        <td className='text-sm text-Gray-600 font-regular max-w-[7.625rem] w-full'>
             <div className={`flex items-center gap-1 px-2 py-[0.125rem] rounded-full text-xs font-medium whitespace-nowrap ${user.active ? 'bg-Success-50 text-Success-700' : 'bg-Error-50 text-Error-700'}`}>
                 {user.active ? <Check /> : <XClose stroke='#F04438' width={8} height={8} />}
                 {user.active ? 'Active' : 'In Active'}
             </div>
         </td>
-        <td className='flex items-center gap-2'>
+        <td className='text-sm text-Gray-600 font-regular max-w-[11.5rem] w-full'>
+            {user.email}
+        </td>
+        <td className='text-xs text-Gray-700 font-medium max-w-[6.125rem] w-full'>
+            <div className='px-2 py-[0.125rem] rounded-full bg-Gray-100'>
+                {user.role}
+            </div>
+        </td>
+        <td className='text-sm text-Gray-600 font-regular whitespace-nowrap max-w-[11.438rem] w-full'>
+            8:00pm - 23 Aug 2023
+        </td>
+        <td className='flex items-center justify-end gap-2 flex-grow w-full'>
             <ActionButtons
                 onShowMemberCredentials={() => onShowMemberCredentials(user.name, user.email)}
                 onDeleteMember={() => onDeleteMember(user.name, String(user.id))}

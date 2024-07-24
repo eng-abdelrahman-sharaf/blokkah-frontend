@@ -26,7 +26,7 @@ export default function DashboardLayout({
                     <Sidebar />
                 </SidebarProvider>
             </div>
-            <div className="flex flex-col items-start gap-8 md:gap-10 bg-white rounded-tl-[2.5rem] flex-grow">
+            <div className="flex flex-col items-start gap-8 md:gap-10 bg-white rounded-tl-[2.5rem] flex-grow overflow-hidden">
                 <div className="p-6 md:p-8 !pb-0">
                     <Breadcrumb />
                 </div>
