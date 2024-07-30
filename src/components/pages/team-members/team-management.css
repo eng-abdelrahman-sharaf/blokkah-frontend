@@ -1,14 +1,9 @@
 table {
     width: 100%;
-    border-collapse: collapse;
 }
 
 thead > tr th {
     @apply flex items-center justify-start gap-1 bg-Gray-50 text-xs text-Gray-600 font-semibold px-6 py-3 w-full text-left whitespace-nowrap
-}
-
-thead > tr th:first-child {
-    @apply gap-3
 }
 
 tr {

@@ -74,11 +74,11 @@ const MembersManagementTable: FC = () => {
 
     return (
         <div className='flex flex-col items-center justify-between max-h-[21.5rem] h-full w-full'>
-            <div className="w-full overflow-x-auto team-management-table">
+            <div className="w-full h-full overflow-x-auto team-management-table">
                 <table className='table table-auto'>
                     <thead>
                         <tr>
-                            <th className='max-w-[12.063rem] w-full'>
+                            <th className='gap-3 w-full'>
                                 <input
                                     type="checkbox"
                                     onChange={handleMasterCheckboxChange}
@@ -86,20 +86,20 @@ const MembersManagementTable: FC = () => {
                                 />
                                 Name
                             </th>
-                            <th className='flex items-center justify-start gap-1 max-w-[7.625rem] w-full'>
+                            <th className='flex items-center justify-start gap-1 ] w-full'>
                                 Status
                                 <div className='-rotate-90'>
                                     <Arrow width={16} height={16} />
                                 </div>
                             </th>
-                            <th className='max-w-[11.5rem] w-full'>Email Address</th>
-                            <th className='flex items-center justify-start gap-1 max-w-[6.125rem] w-full'>
+                            <th className=' w-full'>Email Address</th>
+                            <th className='flex items-center justify-start gap-1 ] w-full'>
                                 Role
                                 <div className='-rotate-90'>
                                     <Arrow width={16} height={16} />
                                 </div>
                             </th>
-                            <th className='flex items-center justify-start gap-1 max-w-[11.438rem] w-full'>
+                            <th className='flex items-center justify-start gap-1 m] w-full'>
                                 Creation Date
                                 <div className='-rotate-90'>
                                     <Arrow width={16} height={16} />
@@ -142,7 +142,7 @@ interface UserRowProps {
 
 const UserRow: FC<UserRowProps> = React.memo(({ user, selectedUsers, onCheckboxChange, onShowMemberCredentials, onDeleteMember }) => (
     <tr>
-        <td className='flex items-center gap-3 text-sm text-Gray-900 font-medium whitespace-nowrap max-w-[12.063rem] w-full'>
+        <td className='flex items-center gap-3 text-sm text-Gray-900 font-medium whitespace-nowrap w-full'>
             <input
                 type="checkbox"
                 checked={selectedUsers.includes(user.id)}
@@ -153,21 +153,21 @@ const UserRow: FC<UserRowProps> = React.memo(({ user, selectedUsers, onCheckboxC
             </div>
             {user.name}
         </td>
-        <td className='text-sm text-Gray-600 font-regular max-w-[7.625rem] w-full'>
-            <div className={`flex items-center gap-1 px-2 py-[0.125rem] rounded-full text-xs font-medium whitespace-nowrap ${user.active ? 'bg-Success-50 text-Success-700' : 'bg-Error-50 text-Error-700'}`}>
+        <td className='text-sm text-Gray-600 font-regular w-full'>
+            <span className={`flex items-center gap-1 w-fit px-2 py-[0.125rem] rounded-full text-xs font-medium whitespace-nowrap ${user.active ? 'bg-Success-50 text-Success-700' : 'bg-Error-50 text-Error-700'}`}>
                 {user.active ? <Check /> : <XClose stroke='#F04438' width={8} height={8} />}
                 {user.active ? 'Active' : 'In Active'}
-            </div>
+            </span>
         </td>
-        <td className='text-sm text-Gray-600 font-regular max-w-[11.5rem] w-full'>
+        <td className='text-sm text-Gray-600 font-regular w-full'>
             {user.email}
         </td>
-        <td className='text-xs text-Gray-700 font-medium max-w-[6.125rem] w-full'>
-            <div className='px-2 py-[0.125rem] rounded-full bg-Gray-100'>
+        <td className='text-xs text-Gray-700 font-medium w-full'>
+            <span className='w-fit px-2 py-[0.125rem] rounded-full bg-Gray-100'>
                 {user.role}
-            </div>
+            </span>
         </td>
-        <td className='text-sm text-Gray-600 font-regular whitespace-nowrap max-w-[11.438rem] w-full'>
+        <td className='text-sm text-Gray-600 font-regular whitespace-nowrap w-full'>
             8:00pm - 23 Aug 2023
         </td>
         <td className='flex items-center justify-end gap-2 flex-grow w-full'>
@@ -223,7 +223,7 @@ interface PaginationProps {
 }
 
 const Pagination: FC<PaginationProps> = React.memo(({ users, rowsPerPage, currentPage, onPageChange }) => (
-    <div className='flex items-center justify-between w-full px-6 py-3'>
+    <div className='flex items-center justify-between gap-2 w-full px-6 py-3'>
         <Button
             variant='secondaryGray'
             icon='leading'
@@ -234,7 +234,7 @@ const Pagination: FC<PaginationProps> = React.memo(({ users, rowsPerPage, curren
             }
             disabled={currentPage === 1}
             onClick={() => onPageChange(currentPage - 1)}
-            className='w-fit'
+            className='w-fit [&>span]:hidden lg:[&>span]:block'
         >
             Previous
         </Button>
@@ -264,7 +264,7 @@ const Pagination: FC<PaginationProps> = React.memo(({ users, rowsPerPage, curren
             }
             disabled={currentPage === Math.ceil(users.length / rowsPerPage)}
             onClick={() => onPageChange(currentPage + 1)}
-            className='w-fit'
+            className='w-fit [&>span]:hidden lg:[&>span]:block'
         >
             Next
         </Button>
