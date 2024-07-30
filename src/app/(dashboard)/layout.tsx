@@ -21,7 +21,7 @@ export default function DashboardLayout({
 
     return (
         <div className="flex w-full h-full bg-Brand-700">
-            <div className="max-w-[19.5rem] w-full">
+            <div className="max-w-[19.5rem] w-fit lg:w-full">
                 <SidebarProvider>
                     <Sidebar />
                 </SidebarProvider>

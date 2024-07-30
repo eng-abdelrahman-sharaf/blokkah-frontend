@@ -14,8 +14,8 @@ const DashboardPagesHeader = (
     return (
         <div className='flex items-center justify-between w-full'>
             <div>
-                <h1 className='font-bold text-Gray-900 text-2xl md:text-3xl'>{title}</h1>
-                <p className='text-sm md:text-md font-regular text-Gray-600'>{description}</p>
+                <h1 className='font-bold text-Gray-900 text-xl sm:text-2xl md:text-3xl'>{title}</h1>
+                <p className='text-xs sm:text-sm md:text-md font-regular text-Gray-600'>{description}</p>
             </div>
             <Button
                 size={'md'}
@@ -23,7 +23,7 @@ const DashboardPagesHeader = (
                 icon='leading'
                 customIconComponent={customIconComponent}
                 onClick={onClick}
-                className='w-fit text-sm md:text-md px-3 py-2 md:px-4 md:py-[0.625rem]'
+                className='w-fit text-xs sm:text-sm md:text-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-[0.625rem]'
             >
                 {buttonText}
             </Button>

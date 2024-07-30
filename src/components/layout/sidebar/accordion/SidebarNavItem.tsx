@@ -45,7 +45,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
 
     const handleClick = () => {
         if (isAccordion) {
-            toggleExpand(linkItemName);
+            toggleExpand(href);
         }
     };
 
@@ -53,7 +53,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         <div
             className={cn(
                 'sidebar-link-item',
-                'text-Brand-300 bg-transparent flex items-cente justify-start w-full',
+                'text-Brand-300 bg-transparent flex items-cente justify-start w-fit lg:w-full',
                 { 'text-white bg-Brand-600': pathName.includes(href) },
                 { '!px-3 !pl-12 !py-2': isAccordionChild }
             )}
@@ -61,7 +61,9 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         >
             {IconComponent && <IconComponent stroke={pathName.includes(href) ? 'white' : undefined} />}
 
-            <p className='flex-grow'>
+            <p className={cn(
+                'flex-grow hidden lg:block',
+            )}>
                 {linkItemName}
             </p>
 
@@ -74,7 +76,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
     );
 
     return isAccordion ? content :
-        <Link href={href} className='w-full'>
+        <Link href={href} className='w-fit lg:w-full'>
             {content}
         </Link>;
 };

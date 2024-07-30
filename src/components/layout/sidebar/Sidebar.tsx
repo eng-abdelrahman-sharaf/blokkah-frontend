@@ -8,7 +8,7 @@ import ProfileTab from './ProfileTab'
 
 import { Logo } from '@/components/icons'
 
-const SidebarNavButtons: { [key: string]: any } = {
+export const SidebarNavButtons: { [key: string]: any } = {
     'dashboard': {
         name: 'Dashboard',
         href: '/dashboard',
@@ -17,7 +17,20 @@ const SidebarNavButtons: { [key: string]: any } = {
     'property-management': {
         name: 'Property Management',
         href: '/property-management',
-        icon: 'ThreeLayers'
+        icon: 'ThreeLayers',
+        isAccordion: true,
+        accordionItems: {
+            'property-types': {
+                name: 'Property Types',
+                href: '/property-management/property-types',
+                isAccordionChild: true
+            },
+            'all-properties': {
+                name: 'All Properties',
+                href: '/property-management/all-properties',
+                isAccordionChild: true
+            },
+        }
     },
     'user-management': {
         name: 'User Management',
@@ -58,7 +71,20 @@ const SidebarNavButtons: { [key: string]: any } = {
     'reports-and-complaints': {
         name: 'Reports & Complaints',
         href: '/reports-and-complaints',
-        icon: 'Flag'
+        icon: 'Flag',
+        isAccordion: true,
+        accordionItems: {
+            'agents-and-properties': {
+                name: 'Agents & Properties',
+                href: '/reports-and-complaints/agents-and-properties',
+                isAccordionChild: true
+            },
+            'blokkah-app': {
+                name: 'Blokkah App',
+                href: '/reports-and-complaints/blokkah-app',
+                isAccordionChild: true
+            },
+        }
     },
     'analytics': {
         name: 'Analytics',
@@ -69,15 +95,23 @@ const SidebarNavButtons: { [key: string]: any } = {
 
 const Sidebar = () => {
     return (
-        <div className='flex flex-col items-center justify-between px-6 py-8 h-full'>
+        <div className='flex flex-col items-start lg:items-center justify-between px-3 lg:px-6 py-8 h-full'>
             <div className='w-full'>
-                <div className='px-4 mb-10 overflow-hidden w-fit'>
+                <div className='px-4 mb-10 overflow-hidden w-fit hidden lg:block'>
                     <Logo fill='white' width={84} height={32} />
+                </div>
+                <div className='px-4 mb-10 overflow-hidden w-fit block lg:hidden'>
+                    <Logo fill='white' width={56} height={28} />
                 </div>
                 <SidebarNav SidebarNavButtons={SidebarNavButtons} />
             </div>
-            <div className='flex flex-col items-center gap-6 w-full'>
-                <div className='flex flex-col items-center gap-2 w-full'>
+            <div className='flex flex-col items-center gap-6 w-fit lg:w-full'>
+                <div className='flex flex-col items-center gap-2 w-fit lg:w-full'>
+                    <SidebarNavItem
+                        href='/notifications'
+                        linkItemName='Notifications'
+                        startIcon='Bell'
+                    />
                     <SidebarNavItem
                         href='/team-members'
                         linkItemName='Team Members'
@@ -96,4 +130,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default Sidebar;

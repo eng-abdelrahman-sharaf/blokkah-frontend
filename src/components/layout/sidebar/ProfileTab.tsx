@@ -13,12 +13,12 @@ const ProfileTab = ({ name = 'Ahmed Ali', email = 'ahmedali@works.com' }: { name
                     width={40}
                     height={40}
                 />
-                <div className='text-left'>
+                <div className='text-left hidden lg:block'>
                     <p className='text-Gray-200 font-semibold text-sm'>{name}</p>
                     <p className='text-Gray-400 font-regular text-sm'>{email}</p>
                 </div>
             </div>
-            <Button className='w-fit p-2'>
+            <Button className='w-fit p-2 hidden lg:block'>
                 <Logout />
             </Button>
         </div>

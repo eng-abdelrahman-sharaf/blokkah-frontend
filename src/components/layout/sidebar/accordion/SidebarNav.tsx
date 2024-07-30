@@ -27,7 +27,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ SidebarNavButtons, accordionChi
     const memoizedSidebarNavItems = useMemo(() => SidebarNavButtons, [SidebarNavButtons]);
 
     const renderNavItem = (item: SidebarNavButton, key: string) => {
-        const isExpanded = !!expanded[item.name];
+        const isExpanded = !!expanded[item.href];
 
         return (
             <React.Fragment key={`sidebar-item-${item.name}`}>
@@ -51,7 +51,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ SidebarNavButtons, accordionChi
 
     return (
         <div className={cn(
-            "flex flex-col items-center gap-2 w-full",
+            "flex flex-col items-start lg:items-center gap-2 w-fit lg:w-full",
             { 'gap-1': accordionChildren }
         )}>
             {Object.keys(memoizedSidebarNavItems).map((key) => {
@@ -61,7 +61,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ SidebarNavButtons, accordionChi
                             key={`sidebar-item-${memoizedSidebarNavItems[key].name}`}
                             className={cn(
                                 'overflow-hidden transition-all flex flex-col items-center gap-2 w-full max-h-12',
-                                { 'max-h-36': !!expanded[memoizedSidebarNavItems[key].name] },
+                                { 'max-h-36': !!expanded[memoizedSidebarNavItems[key].href] },
                             )}
                         >
                             {renderNavItem(memoizedSidebarNavItems[key], key)}
