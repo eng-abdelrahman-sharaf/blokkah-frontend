@@ -48,17 +48,19 @@ const Banners = ({ initialBanners }: { initialBanners?: banners[] }) => {
                 buttonText="Add Banners"
                 onClick={handleAddNewBanner}
             />
-            <div className='flex items-center gap-6 w-full flex-wrap 2xl:flex-nowrap'>
-                {banners.map((banner, index) => (
-                    <Banner
-                        key={banner.bannerId + index}
-                        bannerSrc={banner.bannerSrc}
-                        bannerId={banner.bannerId}
-                        active={banner.active}
-                        onEdit={() => handleEditBanner(banner.bannerId)}
-                        onDelete={() => handleDeleteBanner(banner.bannerId)}
-                    />
-                ))}
+            <div className='flex-grow w-full overflow-y-auto'>
+                <div className='flex items-start justify-center lg:justify-start gap-4 w-full flex-wrap'>
+                    {banners.map((banner, index) => (
+                        <Banner
+                            key={banner.bannerId + index}
+                            bannerSrc={banner.bannerSrc}
+                            bannerId={banner.bannerId}
+                            active={banner.active}
+                            onEdit={() => handleEditBanner(banner.bannerId)}
+                            onDelete={() => handleDeleteBanner(banner.bannerId)}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

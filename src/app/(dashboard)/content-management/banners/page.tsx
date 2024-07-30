@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Banners from '@/components/pages/banners/Banners';
+import Banners from '@/components/pages/content-management/banners/Banners';
 
 // mock data to be removed
 const banners = [

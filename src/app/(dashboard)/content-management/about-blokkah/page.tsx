@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AboutBlokkah from '@/components/pages/about-blokkah/AboutBlokkah';
+import AboutBlokkah from '@/components/pages/content-management/about-blokkah/AboutBlokkah';
 
 const page = () => {
     // here, you can fetch the content of the page on the server, and pass it down as prop to the AboutBlokka component
