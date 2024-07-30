@@ -26,7 +26,7 @@ interface IInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 
 }
 
 const inputVariants = cva(
-    "flex items-center gap-2 shadow-sm border border-Gray-300 px-4 w-full text-Gray-500 rounded-lg bg-transparent focus-within:shadow-activeElementBoxShadow focus-within:border-Brand-300",
+    "flex items-center gap-2 shadow-xs border border-Gray-300 px-4 w-full text-Gray-500 rounded-lg bg-transparent focus-within:shadow-activeElementBoxShadow focus-within:border-Brand-300",
     {
         variants: {
             error: {
