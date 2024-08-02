@@ -61,6 +61,9 @@ const config: Config = {
           "800": "#912018",
           "900": "#7A271A",
         },
+        Secondary: {
+          "600": "#02ADFF",
+        },
       },
       backgroundColor: {
         Gray: {
