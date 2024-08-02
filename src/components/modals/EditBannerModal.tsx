@@ -1,18 +1,35 @@
-'use client'
+'use client';
 
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { useModal } from '@/context/ModalContext';
-
 import { Button } from '@/components/UI/Button';
-
 import { ImageIcon, XClose } from '@/components/icons';
-
 import ImageSelector from '@/components/UI/ImageSelector';
 import Toggle from '@/components/UI/Toggle';
 
-const EditBannerModal = () => {
+interface EditBannerModalProps {
+    banner: {
+        bannerSrc: string;
+        bannerId: string;
+        active: boolean;
+    };
+    onSave: (updatedBanner: { bannerSrc: string; bannerId: string; active: boolean }) => void;
+}
+
+const EditBannerModal: React.FC<EditBannerModalProps> = ({ banner, onSave }) => {
     const { closeModal } = useModal();
+    const [bannerSrc, setBannerSrc] = useState<any>(banner.bannerSrc);
+    const [isActive, setIsActive] = useState(banner.active);
+
+    useEffect(() => {
+        setBannerSrc(banner.bannerSrc);
+        setIsActive(banner.active);
+    }, [banner]);
+
+    const handleSave = () => {
+        onSave({ ...banner, bannerSrc, active: isActive });
+        closeModal();
+    };
 
     return (
         <div className='flex flex-col items-center gap-8'>
@@ -34,10 +51,10 @@ const EditBannerModal = () => {
                 </div>
             </div>
             <div className='w-full'>
-                <ImageSelector isImagePreview />
+                <ImageSelector isImagePreview imageSrc={bannerSrc} setImageSrc={setBannerSrc} />
             </div>
             <div className='w-full flex items-center gap-3'>
-                <Toggle />
+                <Toggle checked={isActive} onChange={() => setIsActive(prev => !prev)} />
                 <div>
                     <p className='text-md text-Gray-700 font-medium'>Is Active</p>
                     <p className='text-md text-Gray-600 font-regular mt-[2px]'>Control whether it is active and visible to users.</p>
@@ -57,12 +74,13 @@ const EditBannerModal = () => {
                     variant='primary'
                     size='lg'
                     className='w-fit'
+                    onClick={handleSave}
                 >
                     Save Changes
                 </Button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default EditBannerModal;
