@@ -8,6 +8,7 @@ import ImageSelector from '@/components/UI/ImageSelector'
 import Input from '@/components/UI/Input'
 
 import RoleSelector from '@/components/RoleSelector'
+import { cn } from '@/lib/utils'
 
 const roles = ['Super Admin', 'Admin', 'Marketing', 'Customer Service', 'Quality Assurance'];
 
@@ -32,7 +33,12 @@ const AccountDetails = () => {
                             className='rounded-xl max-w-[126px] max-h-[126px] w-full h-full'
                         />
                     }
-                    <ImageSelector imageSrc={imageSrc} setImageSrc={setImageSrc} />
+                    <div className={cn(
+                        'max-w-full w-full',
+                        { 'max-w-[370px]': imageSrc }
+                    )}>
+                        <ImageSelector imageSrc={imageSrc} setImageSrc={setImageSrc} />
+                    </div>
                 </div>
             </div>
 
@@ -47,6 +53,7 @@ const AccountDetails = () => {
                 <div className='max-w-[32.5rem] w-full'>
                     <Input
                         inputType='text'
+                        name='full-name'
                         placeholder='Your Name'
                     />
                 </div>
@@ -63,6 +70,7 @@ const AccountDetails = () => {
                 <div className='max-w-[32.5rem] w-full'>
                     <Input
                         inputType='email'
+                        name='email-address'
                         placeholder='admin@blokka.io'
                     />
                 </div>

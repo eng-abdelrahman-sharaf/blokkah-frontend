@@ -6,7 +6,7 @@ import { useModal } from '@/context/ModalContext';
 
 import { Button } from '@/components/UI/Button'
 
-import { UserPlus, XClose } from '@/components/icons'
+import { Mail, UserPlus, XClose } from '@/components/icons'
 
 import Input from '@/components/UI/Input';
 import Toggle from '@/components/UI/Toggle';
@@ -46,6 +46,7 @@ const NewMemberModal = () => {
                     inputType='email'
                     label='Email'
                     placeholder='ahmed.ali@works.com'
+                    startComponent={<Mail />}
                 />
                 <div className='max-w-[32.5rem] w-full'>
                     <RoleSelector selectList={roles} label='Role' />

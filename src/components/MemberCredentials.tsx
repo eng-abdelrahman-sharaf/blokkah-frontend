@@ -52,7 +52,7 @@ const MemberCredentials = ({ memberEmail }: { memberEmail: string }) => {
                     Okay
                 </Button>
                 <Button
-                    variant={'success'}
+                    variant={'primary'}
                     size='lg'
                     onClick={handleCopyToClipboard}
                 >
