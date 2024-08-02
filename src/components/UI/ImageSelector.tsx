@@ -73,7 +73,7 @@ const ImageSelector: React.FC<ImageSelectorProps> = ({ isImagePreview = false, i
             <div className={
                 cn(
                     "max-w-[32.5rem] w-full max-h-[200px] h-full flex items-center justify-center border border-Gray-200 rounded-lg overflow-hidden",
-                    { 'px-6 py-4 max-w-[370px]': imageSrc },
+                    { 'px-6 py-4': imageSrc },
                     { 'p-5': isImagePreview },
                     { 'px-6 py-4': !preview }
                 )
@@ -126,7 +126,7 @@ export default React.memo(ImageSelector);
 
 const ImageSelectorWrapper = () => {
     return (
-        <div className='flex flex-col items-center gap-3'>
+        <div className='flex flex-col items-center gap-3 w-full'>
             <UploadCloud />
             <div className='text-xs text-Gray-600 text-center'>
                 <p>
