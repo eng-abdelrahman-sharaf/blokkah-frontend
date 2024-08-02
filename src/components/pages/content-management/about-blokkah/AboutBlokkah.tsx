@@ -6,7 +6,7 @@ import DashboardPagesHeader from '@/components/layout/DashboardPagesHeader';
 
 import { Save } from '@/components/icons';
 
-const AboutBlokkah: React.FC<{ aboutUs?: string, termsOfConditions?: string }> = ({ aboutUs, termsOfConditions }) => {
+const AboutBlokkah: React.FC<{ aboutUs?: string, termsOfConditions?: string, privacyPoilicy?: string }> = ({ aboutUs, termsOfConditions, privacyPoilicy }) => {
 
   const handleSubmit = async (formdata: FormData) => {
     'use server'
@@ -52,6 +52,22 @@ const AboutBlokkah: React.FC<{ aboutUs?: string, termsOfConditions?: string }> =
             className='max-w-[32.5rem] w-full h-full resize-none'
             containerClassNames='h-full'
             defaultValue={termsOfConditions}
+          />
+        </div>
+
+        <hr className='bg-Gray-200 w-full' />
+
+        <div className='flex flex-col sm:flex-row items-start gap-5 sm:gap-8 w-full max-h-[12.5rem] h-full'>
+          <div className='max-w-[18.875rem] w-full'>
+            <h2 className='text-lg text-Gray-900 font-semibold mb-1'>Privacy Policy</h2>
+            <p className='text-sm text-Gray-600 font-regular'>We have missed you.</p>
+          </div>
+          <Textarea
+            name='termsConditions'
+            placeholder='Content Here...'
+            className='max-w-[32.5rem] w-full h-full resize-none'
+            containerClassNames='h-full'
+            defaultValue={privacyPoilicy}
           />
         </div>
       </div>

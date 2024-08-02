@@ -8,6 +8,7 @@ const page = () => {
         <AboutBlokkah
             aboutUs='This is the About Us Text Coming from the Backend'
             termsOfConditions='Do Not Disturb'
+            privacyPoilicy='This is the Privacy Policy'
         />
     )
 }
