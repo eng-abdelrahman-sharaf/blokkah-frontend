@@ -1,69 +1,88 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { useModal } from '@/context/ModalContext';
-
-import { Plus } from '@/components/icons';
-
-import DashboardPagesHeader from '@/components/layout/DashboardPagesHeader';
-
-import NewBannerModal from '@/components/modals/NewBannerModal';
 import EditBannerModal from '@/components/modals/EditBannerModal';
-import DeleteBannerModal from '@/components/modals/DeleteBannerModal';
-
+import DeleteModal from '@/components/modals/DeleteModal';
 import Banner from './Banner';
+import Tabs from '@/components/Tabs';
+import { BannerType } from '@/app/(dashboard)/content-management/(banners)/banners/page';
 
-type banners = {
-    bannerSrc: string;
-    bannerId: string;
-    active: boolean;
-}
+const bannersTabs = [
+    {
+        name: 'Blokkah Banners',
+        type: 'blokkah'
+    },
+    {
+        name: 'Banners Requests',
+        type: 'requests'
+    }
+];
 
-const Banners = ({ initialBanners }: { initialBanners?: banners[] }) => {
+const Banners = ({ initialBanners }: { initialBanners?: BannerType[] }) => {
     const { openModal } = useModal();
     const [banners, setBanners] = useState(initialBanners || []);
+    const [filteredBanners, setFilteredBanners] = useState<BannerType[]>([]);
+    const [activeTab, setActiveTab] = useState('blokkah');
 
-    const handleAddNewBanner = () => {
-        openModal(<NewBannerModal />);
-    };
+    useEffect(() => {
+        filterBanners(activeTab);
+    }, [banners, activeTab]);
 
-    const handleEditBanner = (bannerId: string) => {
-        openModal(<EditBannerModal />);
+    const handleEditBanner = (banner: BannerType) => {
+        openModal(<EditBannerModal banner={banner} onSave={handleSaveBanner} />);
     };
 
     const handleDeleteBanner = (bannerId: string) => {
         const deleteBanner = (id: string) => {
             setBanners((prevBanners) => prevBanners.filter(banner => banner.bannerId !== id));
         };
-        openModal(<DeleteBannerModal bannerId={bannerId} onDelete={deleteBanner} />);
+        openModal(
+            <DeleteModal
+                itemId={bannerId}
+                deleteModalMessage='Delete Banner'
+                deleteModalConfirmation='Are you sure you want to delete this post? This action cannot be undone.'
+                onDelete={deleteBanner}
+            />
+        );
+    };
+
+    const handleSaveBanner = (updatedBanner: BannerType) => {
+        setBanners((prevBanners) =>
+            prevBanners.map((banner) =>
+                banner.bannerId === updatedBanner.bannerId ? updatedBanner : banner
+            )
+        );
+    };
+
+    const filterBanners = (type: string) => {
+        setFilteredBanners(banners.filter(banner => banner.type === type));
+    };
+
+    const handleTabChange = (type: string) => {
+        setActiveTab(type);
+        filterBanners(type);
     };
 
     return (
-        <div className='dashboard-pages-wrapper'>
-            <DashboardPagesHeader
-                title='Banners'
-                description='We have missed you.'
-                customIconComponent={<Plus />}
-                buttonText="Add Banners"
-                onClick={handleAddNewBanner}
-            />
+        <>
+            <Tabs tabs={bannersTabs} onTabChange={handleTabChange} />
             <div className='flex-grow w-full overflow-y-auto'>
                 <div className='flex items-start justify-center lg:justify-start gap-4 w-full flex-wrap'>
-                    {banners.map((banner, index) => (
+                    {filteredBanners.map((banner) => (
                         <Banner
-                            key={banner.bannerId + index}
+                            key={banner.bannerId}
                             bannerSrc={banner.bannerSrc}
                             bannerId={banner.bannerId}
                             active={banner.active}
-                            onEdit={() => handleEditBanner(banner.bannerId)}
+                            onEdit={() => handleEditBanner(banner)}
                             onDelete={() => handleDeleteBanner(banner.bannerId)}
                         />
                     ))}
                 </div>
             </div>
-        </div>
+        </>
     );
-}
+};
 
 export default React.memo(Banners);
