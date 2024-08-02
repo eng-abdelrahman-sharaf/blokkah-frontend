@@ -12,7 +12,7 @@ import { Button } from '@/components/UI/Button';
 import { Arrow, User, PhoneCall, Copy, Eye } from '@/components/icons';
 
 import MemberCredentialsModal from '@/components/modals/MemberCredentialsModal';
-import DeleteMemberModal from '@/components/modals/DeleteMemberModal';
+import DeleteModal from '@/components/modals/DeleteModal';
 
 import formatDateTime from '@/lib/formatDateTime';
 import { cn } from '@/lib/utils';
@@ -270,7 +270,13 @@ const ActionButtonsCell: React.FC<ActionButtonsCellProps> = ({ user }) => {
     };
 
     const handleDeleteMember = (username: string, id: string) => {
-        openModal(<DeleteMemberModal username={username} id={id} />);
+        openModal(
+            <DeleteModal
+                itemId={id}
+                deleteModalMessage={`Are you sure that you need to delete “${username}”?`}
+                deleteModalConfirmation='By deleting this user, he will lose access to your dashboard any more unless you add him again.'
+                onDelete={() => null}
+            />);
     };
 
     return (

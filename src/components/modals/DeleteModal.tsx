@@ -1,15 +1,25 @@
 'use client'
 
 import React from 'react'
+
 import { useModal } from '@/context/ModalContext';
+
 import { Button } from '@/components/UI/Button';
+
 import { AlertCircle, XClose } from '@/components/icons';
 
-const DeleteBannerModal = ({ bannerId, onDelete }: { bannerId: string, onDelete: (bannerId: string) => void }) => {
+interface DeleteModalProps {
+    itemId: string;
+    deleteModalMessage: string;
+    deleteModalConfirmation: string;
+    onDelete: (itemId: string) => void;
+}
+
+const DeleteModal: React.FC<DeleteModalProps> = ({ itemId, deleteModalMessage, deleteModalConfirmation, onDelete }) => {
     const { closeModal } = useModal();
 
     const handleDelete = () => {
-        onDelete(bannerId);
+        onDelete(itemId);
         closeModal();
     };
 
@@ -32,8 +42,8 @@ const DeleteBannerModal = ({ bannerId, onDelete }: { bannerId: string, onDelete:
                     </Button>
                 </div>
                 <div className="mt-4 text-center">
-                    <h1 className='text-lg text-Gray-900 font-bold'>Delete Banner</h1>
-                    <p className='text-sm text-gray-600 font-regular mt-1'>Are you sure you want to delete this post? This action cannot be undone.</p>
+                    <h1 className='text-lg text-Gray-900 font-bold'>{deleteModalMessage}</h1>
+                    <p className='text-sm text-gray-600 font-regular mt-1'>{deleteModalConfirmation}</p>
                 </div>
             </div>
             <div className='w-full flex items-center justify-end gap-3'>
@@ -56,4 +66,4 @@ const DeleteBannerModal = ({ bannerId, onDelete }: { bannerId: string, onDelete:
     )
 }
 
-export default DeleteBannerModal;
+export default DeleteModal;
