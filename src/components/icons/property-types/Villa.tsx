@@ -2,7 +2,7 @@ import React from 'react'
 
 const Villa = () => {
     return (
-        <svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="84" height="84" className='max-w-16 max-h-16 md:max-w-[7.25rem] md:max-h-[7.25rem]' viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M47.5918 12.2637L33.5918 4.26367C32.9766 3.91211 32.2227 3.91211 31.6075 4.26367L17.6075 12.2637C16.8204 12.7129 16.4336 13.6367 16.667 14.5137C16.8995 15.3906 17.6924 16 18.5997 16H46.5996C47.5069 16 48.2998 15.3906 48.5323 14.5137C48.7657 13.6367 48.3789 12.7129 47.5918 12.2637Z"
                 fill="#002949"

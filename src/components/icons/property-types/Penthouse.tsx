@@ -2,7 +2,7 @@ import React from 'react'
 
 const Penthouse = () => {
     return (
-        <svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="84" height="84" className='max-w-16 max-h-16 md:max-w-[7.25rem] md:max-h-[7.25rem]' viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M11.5751 28.2499C11.5751 29.2854 12.4146 30.1249 13.45 30.1249H50.9495C51.985 30.1249 52.8245 29.2854 52.8245 28.2499V22.625H13.45C12.4146 22.625 11.5751 23.4642 11.5751 24.5V28.2499Z"
                 fill="#002949"

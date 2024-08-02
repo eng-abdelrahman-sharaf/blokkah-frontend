@@ -2,7 +2,7 @@ import React from 'react'
 
 const Architecture = () => {
     return (
-        <svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="84" height="84" className='max-w-16 max-h-16 md:max-w-[7.25rem] md:max-h-[7.25rem]' viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
