@@ -40,7 +40,7 @@ export const SidebarNavButtons: { [key: string]: any } = {
         accordionItems: {
             'agents-requests': {
                 name: 'Agents Requests',
-                href: '/user-management/agents-request',
+                href: '/user-management/agents-requests',
                 isAccordionChild: true
             },
             'all-users': {

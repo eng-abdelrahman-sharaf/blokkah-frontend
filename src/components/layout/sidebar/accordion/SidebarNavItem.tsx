@@ -1,14 +1,10 @@
 'use client'
 
 import React, { useEffect, useMemo } from 'react';
-
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
 import { useExpand } from '@/context/SidebarContext';
-
 import { Chevron } from '@/components/icons';
-
 import { cn } from '@/lib/utils';
 
 interface SidebarNavItemProps {
@@ -53,7 +49,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         <div
             className={cn(
                 'sidebar-link-item',
-                'text-Brand-300 bg-transparent flex items-cente justify-start w-fit lg:w-full',
+                'text-Brand-300 bg-transparent flex items-center justify-start w-fit lg:w-full',
                 { 'text-white bg-Brand-600': pathName.includes(href) },
                 { '!px-3 !pl-12 !py-2': isAccordionChild }
             )}
@@ -61,9 +57,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         >
             {IconComponent && <IconComponent stroke={pathName.includes(href) ? 'white' : undefined} />}
 
-            <p className={cn(
-                'flex-grow hidden lg:block',
-            )}>
+            <p className={cn('flex-grow hidden lg:block')}>
                 {linkItemName}
             </p>
 
