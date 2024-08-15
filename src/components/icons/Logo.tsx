@@ -1,12 +1,13 @@
 import React from 'react'
 
-const Logo = ({ fill = '#002949', width = 149, height = 56 }: { fill?: string, width?: number, height?: number }) => {
+const Logo = ({ fill = '#002949', width, height,className }: { fill?: string, width?: number, height?: number,className:string }) => {
     return (
         <svg
             width={width}
             height={height}
             viewBox="0 0 149 56"
             fill="none"
+            className={className}
             xmlns="http://www.w3.org/2000/svg"
         >
             <path

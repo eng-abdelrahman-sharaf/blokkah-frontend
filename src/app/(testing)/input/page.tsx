@@ -5,10 +5,10 @@ import Input from "@/components/UI/Input";
 
 export default function Home() {
   return (
-    <>
+    <div className="w-[80%]">
           <Input label="label" inputType="password" startComponent={<Lock />} placeholder="••••••••" endComponent={<Eye />} />
       
-    </>
+    </div>
   );
 }
 
