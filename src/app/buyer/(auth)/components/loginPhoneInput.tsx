@@ -4,7 +4,7 @@ import PhoneInput, { formatPhoneNumber, parsePhoneNumber } from 'react-phone-num
 import { useState } from 'react'
 import flags from 'react-phone-number-input/flags'
 import { set } from 'mongoose'
-import { cn } from '@/app/lib/utils'
+import { cn } from '@/lib/utils'
 
 export default function LoginPhoneInput({className}:{className?:string}) {
   const [value, setValue] = useState("")

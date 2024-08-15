@@ -1,6 +1,6 @@
 import Background from "@/app/components/background"
 import FindUrNextHome from "./findYourNextHome"
-import { cn } from "@/app/lib/utils"
+import { cn } from "@/lib/utils"
 import buildingImage from "@/app/buyer/assets/building.png";
 
 

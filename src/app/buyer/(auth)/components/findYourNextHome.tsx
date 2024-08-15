@@ -1,5 +1,5 @@
 import Logo from "@/app/assets/logo";
-import { cn, fontSizesAliases } from "@/app/lib/utils";
+import { cn, fontSizesAliases } from "@/lib/utils";
 
 export default function FindUrNextHome({className}:{ className?: string}) {
     return (

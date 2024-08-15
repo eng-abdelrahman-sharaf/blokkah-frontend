@@ -1,5 +1,5 @@
 "use client"
-import { fontSizesAliases } from '@/app/lib/utils';
+import { fontSizesAliases } from '@/lib/utils';
 import React, { useState } from 'react';
 import OtpInput from 'react-otp-input';
 

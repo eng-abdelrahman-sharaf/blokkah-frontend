@@ -3,7 +3,7 @@ import PhoneIcon from "../../assets/phoneIcon";
 import GoogleIcon from "../../assets/googleIcon";
 import AppleIcon from "../../assets/appleIcon";
 import XIcon from "../../assets/xIcon";
-import { cn, fontSizesAliases } from "@/app/lib/utils";
+import { cn, fontSizesAliases } from "@/lib/utils";
 import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ const AuthenticationButtons = ({ className, type }: { className?: string, type: 
         injection = "up"
     }
     return (
-        <div className={cn(`gap-5 flex flex-col ${fontSizesAliases["text-xl"]} font-medium w-full [&>*>*:last-child]:w-full`, className)}>
+        <div className={cn(`gap-5 flex flex-col text-xl font-medium w-full [&>*>*:last-child]:w-full`, className)}>
             <Link href="./withPhone" className="[&>*>*:last-child]:w-full"> 
                 <Button icon="leading" variant={"primary"} size={"lg"} customIconComponent={PhoneIcon()} >
                     Sign {injection} with Phone number
