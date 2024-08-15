@@ -16,8 +16,8 @@ const AuthenticationButtons = ({ className, type }: { className?: string, type: 
         injection = "up"
     }
     return (
-        <div className={cn(`gap-5 flex flex-col text-xl font-medium w-full [&>*>*:last-child]:w-full`, className)}>
-            <Link href="./withPhone" className="[&>*>*:last-child]:w-full"> 
+        <div className={cn(`gap-5 flex flex-col text-xl font-medium w-full [&>*]:gap-3`, className)}>
+            <Link href="./withPhone" className="[&>*]:gap-3"> 
                 <Button icon="leading" variant={"primary"} size={"lg"} customIconComponent={PhoneIcon()} >
                     Sign {injection} with Phone number
                 </Button>

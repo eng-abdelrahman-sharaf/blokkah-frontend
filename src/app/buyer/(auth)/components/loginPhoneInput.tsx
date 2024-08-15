@@ -27,7 +27,7 @@ export default function LoginPhoneInput({className}:{className?:string}) {
       value={value}
       onChange={onChange}
       flags={flags}
-      className={cn("bg-white p-2 rounded-lg w-full" , className)}
+      className={cn("bg-white p-2 rounded-lg w-full text-lg font-medium " , className)}
       />
   )
 }
