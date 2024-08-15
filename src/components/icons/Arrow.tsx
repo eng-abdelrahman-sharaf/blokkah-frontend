@@ -1,10 +1,11 @@
 import React from 'react'
 
-const Arrow = () => {
+const Arrow = ({className}:{className?:string}) => {
     return (
         <svg
-            width="21"
-            height="20"
+            width={className ? undefined :"21"}
+            height={className? undefined :"20"}
+            className={className}
             viewBox="0 0 21 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

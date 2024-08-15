@@ -8,8 +8,31 @@ html {
   font-size: 16px !important;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: normal;
+}
+
+input{
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow:0 0 0 50px white inset;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
+}
+
+input[type="number"]{
+  @apply [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [appearance:textfield];
 }
 
 ::-webkit-scrollbar-track {
