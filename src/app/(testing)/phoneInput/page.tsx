@@ -1,9 +1,9 @@
-import LoginPhoneInput from "@/app/buyer/(auth)/components/loginPhoneInput";
+import AuthPhoneInput from "@/app/buyer/(auth)/components/authPhoneInput";
 
 export default function Page() { 
     return (
         <>
-            <LoginPhoneInput/>
+            <AuthPhoneInput/>
         </>
     )
 }
