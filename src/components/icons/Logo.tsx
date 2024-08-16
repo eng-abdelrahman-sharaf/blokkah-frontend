@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Logo = ({ fill = '#002949', width, height,className }: { fill?: string, width?: number, height?: number,className:string }) => {
+const Logo = ({ fill = '#002949', width, height,className }: { fill?: string, width?: number, height?: number,className?:string }) => {
     return (
         <svg
             width={width}

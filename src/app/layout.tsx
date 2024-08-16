@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { Cairo, DM_Sans } from "next/font/google";
 
-import { FormProvider } from "@/context/FormContext";
+// import { FormProvider } from "@/context/FormContext";
 
 import { Toaster } from "react-hot-toast";
 
