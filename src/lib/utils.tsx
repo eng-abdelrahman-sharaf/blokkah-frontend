@@ -13,3 +13,7 @@ export const fontSizesAliases = {
     "display-sm": "text-3xl",
     "display-xs": "text-2xl",
 };
+
+export const randomId = () => {
+    return Math.random().toString(18).substring(2)
+}
