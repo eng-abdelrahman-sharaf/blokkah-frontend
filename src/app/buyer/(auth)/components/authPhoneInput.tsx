@@ -22,7 +22,7 @@ export default function AuthPhoneInput({className}:{className?:string}) {
   
   return (
     <div className='flex flex-col items-start gap-1.5 w-full'>
-      <div className='text-Gray-700 text-xl font-medium'>
+      <div className='text-Gray-700 text-xl font-medium ml-1'>
         Phone Number
       </div>
       <PhoneInput
@@ -31,6 +31,7 @@ export default function AuthPhoneInput({className}:{className?:string}) {
         value={value}
         onChange={onChange}
         flags={flags}
+        international
         className={cn(`bg-white p-2 rounded-lg w-full text-lg font-medium border border-Gray-300 shadow-xs h-[3.125rem] ${styles["authPhoneInput"]}` , className)}
         />
       </div>
