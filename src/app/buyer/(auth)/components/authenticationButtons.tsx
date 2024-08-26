@@ -17,18 +17,18 @@ const AuthenticationButtons = ({ className, type }: { className?: string, type: 
     }
     return (
         <div className={cn(`gap-5 flex flex-col text-xl font-medium w-full [&>*]:gap-3`, className)}>
-            <Link href="./withPhone" className="[&>*]:gap-3"> 
-                <Button icon="leading" variant={"primary"} size={"lg"} customIconComponent={PhoneIcon()} >
+            <Link href={"./phone"} className="[&>*]:gap-3"> 
+                <Button icon="leading" variant={"primary"} size={"lg"} customIconComponent={<PhoneIcon className="w-5"/>} >
                     Sign {injection} with Phone number
                 </Button>
             </Link>
-            <Button icon="leading" variant={"secondaryGray"} size={"lg"} customIconComponent={GoogleIcon()}>
+            <Button icon="leading" variant={"secondaryGray"} size={"lg"} customIconComponent={<GoogleIcon className="w-5"/>}>
                 Sign {injection} in with Google
             </Button>
-            <Button icon="leading" variant={"secondaryGray"} size={"lg"} customIconComponent={AppleIcon()}>
+            <Button icon="leading" variant={"secondaryGray"} size={"lg"} customIconComponent={<AppleIcon className="w-5"/>}>
                 Sign {injection} with Apple
             </Button>
-            <Button icon="leading" variant={"secondaryGray"} size={"lg"} customIconComponent={XIcon()}>
+            <Button icon="leading" variant={"secondaryGray"} size={"lg"} customIconComponent={<XIcon className="w-5"/>}>
                 Sign {injection} with X
             </Button>
         </div>
