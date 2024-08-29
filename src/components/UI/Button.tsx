@@ -37,6 +37,7 @@ const buttonVariants = cva(
           hover:bg-Gray-50 text-Gray-700\
           active:text-Gray-500 shadow-none\
           disabled:text-Gray-300",
+        carouselIcon: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
       },
       size: {
         sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
