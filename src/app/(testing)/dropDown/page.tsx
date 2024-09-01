@@ -119,6 +119,7 @@ export default function DropdownMenuCheckboxes() {
         className="gap-8 w-[200px] relative"
         data-checked={checkedArray.length > 0}
         ref={buttonRef}
+        childrenWrapperClassName="grow overflow-hidden text-ellipsis"
         onClick={(e : any) => {
           const buttonElement = buttonRef.current as any;
           const {
