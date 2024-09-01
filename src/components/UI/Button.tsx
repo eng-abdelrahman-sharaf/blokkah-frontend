@@ -69,6 +69,8 @@ interface ButtonProps
   asChild?: boolean;
   iconSrc?: string;
   customIconComponent?: React.ReactNode;
+  CustomAbsoluteComponent?: JSX.Element;
+  childrenWrapperClassName?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -80,6 +82,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       iconSrc = undefined,
       customIconComponent = null,
+      CustomAbsoluteComponent = null,
+      childrenWrapperClassName = "",
       asChild = false,
       ...props
     },
@@ -96,7 +100,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {customIconComponent ? customIconComponent : null}
           {iconSrc ? <img src={iconSrc} alt="icon" /> : null}
         </div>
-        <span>{props.children}</span>
+        <div className={childrenWrapperClassName}>{props.children}</div>
+        {CustomAbsoluteComponent}
       </Comp>
     );
   }
