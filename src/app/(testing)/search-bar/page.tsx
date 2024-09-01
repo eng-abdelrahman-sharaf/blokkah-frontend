@@ -7,7 +7,7 @@ import "./style.css";
 
 export default function App() {
   const [value, setValue] = React.useState("");
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: any) => {
     if (e.key === "Enter") {
       alert(`You have searched for ${value}`);
     }
