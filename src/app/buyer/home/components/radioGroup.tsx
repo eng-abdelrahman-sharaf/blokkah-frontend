@@ -27,6 +27,31 @@ const RadioGroup = ({
   multiple?: boolean;
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const onChange = () => { 
+    !checked || !unChecked
+    ? undefined
+    : () => {
+          console.log("onchange");
+        if(!wrapperRef.current) return;
+        const labels = wrapperRef.current.querySelectorAll(
+          `label`
+        ) as any;
+        console.log(labels);
+        for (const label of labels) {
+            console.log(label.children[2].checked);
+            if (label.children[2].checked) {
+                console.log("checked");
+                checked(label);
+            }
+            else {
+                  console.log("unchecked");
+                unChecked(label);
+            }
+        }
+      }
+  }
+  
   return (
     <div
       ref={wrapperRef}
@@ -50,29 +75,7 @@ const RadioGroup = ({
               className={`hidden`}
               type={multiple ? "checkbox" : "radio"}
               defaultChecked={value == checkedValue ? true : undefined}
-              onChange={
-                !checked || !unChecked
-                  ? undefined
-                  : () => {
-                        console.log("onchange");
-                      if(!wrapperRef.current) return;
-                      const labels = wrapperRef.current.querySelectorAll(
-                        `label`
-                      ) as any;
-                      console.log(labels);
-                      for (const label of labels) {
-                          console.log(label.children[2].checked);
-                          if (label.children[2].checked) {
-                              console.log("checked");
-                              checked(label);
-                          }
-                          else {
-                                console.log("unchecked");
-                              unChecked(label);
-                          }
-                      }
-                    }
-              }
+              onChange={onChange}
             ></input>
           </label>
         );
