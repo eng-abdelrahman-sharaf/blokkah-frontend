@@ -7,7 +7,7 @@ export default function Page() {
       <RadioGroup
         name="property-type"
         ValueArray={["rent", "buy"]}
-        checkedValue="buy"
+        defaultChecked="buy"
       >
         <div>Rent</div>
         <div>Buy</div>
