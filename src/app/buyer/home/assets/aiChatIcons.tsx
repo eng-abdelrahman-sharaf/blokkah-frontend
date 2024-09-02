@@ -1,20 +1,14 @@
 import { cn } from "@/lib/utils";
-import { forwardRef, SVGAttributes } from "react";
+import { forwardRef, HTMLAttributes, SVGAttributes } from "react";
 
-const AIChatIcons = forwardRef(
-  ({
-    className,
-    ref,
-  }: {
-    className?: string;
-    ref?: any;
-  }) => (
+const AIChatIcons = forwardRef<SVGSVGElement , HTMLAttributes<SVGSVGElement>>(
+  ({className} , ref ) => (
     <>
       <svg
         width={41}
         height={40}
         className={className}
-        ref={ref as any}
+        ref={ref}
         viewBox="0 0 41 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
