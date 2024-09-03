@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { ReactNode, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const RadioGroup = ({
   ValueArray,
@@ -18,7 +18,7 @@ const RadioGroup = ({
   ValueArray: Array<string>;
   nodesArray?: Array<JSX.Element>;
   name: string;
-  checkedValue?: string;
+  defaultChecked?: string;
   wholeContainerClassName?: string;
   singleContainerClassName?: string;
   customOnlabelClick?: (value: string) => void;
@@ -27,35 +27,26 @@ const RadioGroup = ({
   unChecked?: (label: ReactNode) => void;
   multiple?: boolean;
 }) => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  const onChange = () => { 
-    !checked || !unChecked
-    ? undefined
-    : () => {
-          console.log("onchange");
-        if(!wrapperRef.current) return;
-        const labels = wrapperRef.current.querySelectorAll(
-          `label`
-        ) as any;
-        console.log(labels);
-        for (const label of labels) {
-            console.log(label.children[2].checked);
-            if (label.children[2].checked) {
-                console.log("checked");
-                checked(label);
-            }
-            else {
-                  console.log("unchecked");
-                unChecked(label);
-            }
-        }
-      }
-  }
   
+  const [checkedValue, setCheckedValue] = useState<string | undefined>(defaultChecked)
+
+  const allLabelsRef = useRef<HTMLLabelElement[]>([]);
+
+  const onChange = (e:any) => { 
+    if (e.target.checked) {
+      setCheckedValue(e.target.value) 
+    }
+  }
+
+  useEffect(() => {
+    for (const label of allLabelsRef.current) {
+      if (label && onLabelUnChecked && label.dataset.value != checkedValue) onLabelUnChecked(label);
+      else if (label && onLabelChecked && label.dataset.value == checkedValue) onLabelChecked(label);
+    }
+  }, [checkedValue]);
+
   return (
     <div
-      ref={wrapperRef}
       className={cn(
         "flex p-3 gap-3 bg-white rounded-lg",
         wholeContainerClassName
@@ -64,6 +55,7 @@ const RadioGroup = ({
       {ValueArray.map((value, index) => {
         return (
           <label
+            data-value={value}
             key={index}
             className={`text-Gray-500 text-lg font-regular  rounded-lg  px-3 py-2 relative
                   [&:has(>:checked)]:bg-Secondary-50 [&:has(>:checked)]:text-Secondary-900`}
@@ -75,7 +67,7 @@ const RadioGroup = ({
               value={value}
               className={`hidden`}
               type={multiple ? "checkbox" : "radio"}
-              defaultChecked={value == checkedValue ? true : undefined}
+              defaultChecked={value == defaultChecked ? true : undefined}
               onChange={onChange}
             ></input>
           </label>
