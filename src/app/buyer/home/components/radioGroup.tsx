@@ -23,8 +23,8 @@ const RadioGroup = ({
   singleContainerClassName?: string;
   customOnlabelClick?: (value: string) => void;
   children: JSX.Element[];
-  checked?: (label: ReactNode) => void;
-  unChecked?: (label: ReactNode) => void;
+  onLabelChecked?: (label: HTMLLabelElement) => void;
+  onLabelUnChecked?: (label: HTMLLabelElement) => void;
   multiple?: boolean;
 }) => {
   
