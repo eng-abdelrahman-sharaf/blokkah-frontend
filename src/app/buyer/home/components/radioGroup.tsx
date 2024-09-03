@@ -4,24 +4,20 @@ import { useEffect, useRef, useState } from "react";
 
 const RadioGroup = ({
   ValueArray,
-  nodesArray,
   name,
   defaultChecked= undefined,
   wholeContainerClassName,
   singleContainerClassName,
-  wholeContainerClassName,
   children,
-  checked,
-  unChecked,
+  onLabelChecked,
+  onLabelUnChecked,
   multiple = false,
 }: {
   ValueArray: Array<string>;
-  nodesArray?: Array<JSX.Element>;
   name: string;
   defaultChecked?: string;
   wholeContainerClassName?: string;
   singleContainerClassName?: string;
-  customOnlabelClick?: (value: string) => void;
   children: JSX.Element[];
   onLabelChecked?: (label: HTMLLabelElement) => void;
   onLabelUnChecked?: (label: HTMLLabelElement) => void;
@@ -57,8 +53,9 @@ const RadioGroup = ({
           <label
             data-value={value}
             key={index}
-            className={`text-Gray-500 text-lg font-regular  rounded-lg  px-3 py-2 relative
-                  [&:has(>:checked)]:bg-Secondary-50 [&:has(>:checked)]:text-Secondary-900`}
+            className={cn(`text-Gray-500 text-lg font-regular  rounded-lg  px-3 py-2 relative
+                  [&:has(>:checked)]:bg-Secondary-50 [&:has(>:checked)]:text-Secondary-900` , singleContainerClassName)}
+            ref = {(el) => {if(el) allLabelsRef.current[index] = el}}
           >
             {children[index]}
             <div className="absolute w-full h-full top-0 left-0 rounded-lg [&:has(+:checked)]:border [&:has(+:checked)]:border-Secondary-600"></div>
