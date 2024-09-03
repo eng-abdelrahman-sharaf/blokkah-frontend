@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+/* added as tailwind instead in layout.tsx file */
+/* html {
   font-size: 16px !important;
-}
+} */
 
 *{
   margin: 0;

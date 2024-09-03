@@ -9,11 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/date-picker": "^2.1.6",
+    "@nextui-org/input": "^2.2.4",
+    "@nextui-org/system": "^2.2.5",
+    "@nextui-org/theme": "^2.2.9",
+    "@radix-ui/react-radio-group": "^1.2.0",
+    "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "axios": "^1.7.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.2.0",
+    "framer-motion": "^11.3.28",
     "input-otp": "^1.2.4",
+    "lucide-react": "^0.436.0",
     "next": "14.2.4",
+    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
@@ -21,7 +32,10 @@
     "react-otp-input": "^3.1.1",
     "react-phone-input-2": "^2.15.1",
     "react-phone-number-input": "^3.4.5",
-    "tailwind-merge": "^2.4.0"
+    "styled-components": "^6.1.12",
+    "tailwind-merge": "^2.4.0",
+    "tailwind-variants": "^0.2.1",
+    "tailwind.macro": "^1.0.0-alpha.10"
   },
   "devDependencies": {
     "@types/node": "^20",

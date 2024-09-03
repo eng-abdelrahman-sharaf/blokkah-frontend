@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const className = "shadow-none "
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed focus:outline-none",
   {
     variants: {
       variant: {
@@ -36,7 +36,10 @@ const buttonVariants = cva(
           "text-Gray-600 border-0\
           hover:bg-Gray-50 text-Gray-700\
           active:text-Gray-500 shadow-none\
-          disabled:text-Gray-300",
+          disabled:text-Gray-300", 
+        dropDownTrigger:
+          "bg-white data-[checked=true]:text-Gray-900 data-[checked=false]:text-Gray-500 text-start text-medium font-medium\
+          active:shadow-none active:scale-100",
       },
       size: {
         sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
@@ -66,6 +69,8 @@ interface ButtonProps
   asChild?: boolean;
   iconSrc?: string;
   customIconComponent?: React.ReactNode;
+  CustomAbsoluteComponent?: JSX.Element;
+  childrenWrapperClassName?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -77,6 +82,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       iconSrc = undefined,
       customIconComponent = null,
+      CustomAbsoluteComponent = null,
+      childrenWrapperClassName = "",
       asChild = false,
       ...props
     },
@@ -93,7 +100,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {customIconComponent ? customIconComponent : null}
           {iconSrc ? <img src={iconSrc} alt="icon" /> : null}
         </div>
-        <span>{props.children}</span>
+        <div className={childrenWrapperClassName}>{props.children}</div>
+        {CustomAbsoluteComponent}
       </Comp>
     );
   }
