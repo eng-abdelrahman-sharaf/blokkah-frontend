@@ -33,15 +33,15 @@ export default function GPT() {
         <RadioGroup
           name="chatbot-section"
           ValueArray={["0", "1", "2"]}
-          checked={(label:any) => {
+          onLabelChecked={(label:HTMLLabelElement) => {
             const svgs = label.querySelectorAll("svg");
-            svgs[0].classList.add("hidden");
-            svgs[1].classList.remove("hidden");
+            svgs[0]?.classList?.add("hidden");
+            svgs[1]?.classList?.remove("hidden");
           }}
-          unChecked={(label:any) => {
+          onLabelUnChecked={(label:HTMLLabelElement) => {
             const svgs = label.querySelectorAll("svg");
-            svgs[0].classList.remove("hidden");
-            svgs[1].classList.add("hidden");
+            svgs[0]?.classList?.remove("hidden");
+            svgs[1]?.classList?.add("hidden"); 
           }}
         >
           <Option icons={<AIChatIcons />} text="AI Chat" />
