@@ -43,6 +43,7 @@ export default function GPT() {
             svgs[0]?.classList?.remove("hidden");
             svgs[1]?.classList?.add("hidden"); 
           }}
+          absoluteBGClassName="hidden"
         >
           <Option icons={<AIChatIcons />} text="AI Chat" />
           <Option icons={<PropertyRequestIcons />} text="Property Request" />
