@@ -6,9 +6,8 @@ import { cn } from "@/lib/utils";
 
 //TODO - delete this line
 const className = "shadow-none "
-
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed focus:outline-none",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow disabled:pointer-events-none w-full disabled:cursor-not-allowed focus:outline-none",
   {
     variants: {
       variant: {
@@ -39,7 +38,7 @@ const buttonVariants = cva(
           disabled:text-Gray-300", 
         dropDownTrigger:
           "bg-white data-[checked=true]:text-Gray-900 data-[checked=false]:text-Gray-500 text-start text-medium font-medium\
-          active:shadow-none active:scale-100",
+          active:shadow-none",
       },
       size: {
         sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
@@ -55,6 +54,12 @@ const buttonVariants = cva(
         only: "[&>*:last-child]:hidden",
       },
     },
+    compoundVariants: [
+      {
+        variant: ["error", "success", "primary", "secondaryGray", "success", "tertiaryGray"],
+        className:"active:scale-[.98]",
+      },
+    ],
     defaultVariants: {
       variant: "primary",
       size: "sm",
