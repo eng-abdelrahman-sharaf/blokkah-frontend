@@ -295,12 +295,11 @@ export default function CustomCarousel({
           startIndex: 0,
         }}
         className={cn(
-          `w-[calc(100%-2rem)] [&>.overflow-hidden]:${itemBorderRadiusClassName} 
-        xl:w-[calc(100%-12.5rem)] xl:mx-auto`,
+          `w-full [&>.overflow-hidden]:${itemBorderRadiusClassName}`,
           CarouselClassName
         )}
       >
-        <CarouselContent className="">
+        <CarouselContent className="justify-between">
           {items.map((item: ReactNode, index: number) => (
             <CarouselItem
               key={index}
