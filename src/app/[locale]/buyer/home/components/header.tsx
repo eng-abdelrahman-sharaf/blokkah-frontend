@@ -3,6 +3,7 @@ import { Logo } from "@/components/icons";
 import { Button } from "@/components/UI/Button";
 import { DropDownBody } from "../../components/dropDown";
 import GlobeIcon from "../assets/globeIcon";
+import GuestIcon from "../assets/GuestIcon";
 
 const NavLinks = () => (
   <div className="absolute top-full bg-red-500 flex flex-col">
@@ -31,7 +32,7 @@ const NavItem = ({ href, text }: { href: string; text: string }) => (
 );
 
 const NavigationGroup = () => (
-  <div className={`flex gap-10 h-full items-center ${fontSizesAliases["display-xs"]} font-medium`}>
+  <div className={`flex gap-10 h-full items-center text-2xl font-medium`}>
     <Logo className="h-8" />
     <nav className="flex gap-8 ">
       <ExploreDropDown />
@@ -42,7 +43,7 @@ const NavigationGroup = () => (
 );
 
 const CTAGroup = () => (
-  <div className="flex">
+  <div className="flex gap-3">
     <Button variant={"tertiaryGray"} size={"2xl"} icon={"leading"} customIconComponent={<GlobeIcon className="h-6"/>}>English</Button>
     <Button variant={"tertiaryColor"} size={"2xl"} >Download app</Button>
     <Button variant={"primary"} icon="leading" customIconComponent={<GuestIcon className="h-6" />} size={"2xl"} ><span className="text-2xl">Sign in</span></Button>
@@ -52,7 +53,7 @@ const CTAGroup = () => (
 const Header = () => {
 
   return (
-    <header className="bg-white px-10 flex justify-between items-center fixed top-0 z-30 inset-x-0 h-24">
+    <header className="bg-white px-16 flex justify-between items-center fixed top-0 z-30 inset-x-0 h-24">
         <NavigationGroup />
         <CTAGroup />
     </header>
