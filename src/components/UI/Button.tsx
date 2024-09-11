@@ -5,10 +5,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 //TODO - delete this line
-const className = "shadow-none "
-
+const className = "shadow-none transition-all scale-100"
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed focus:outline-none",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
@@ -32,14 +31,21 @@ const buttonVariants = cva(
             hover:bg-Success-700\
             active:bg-Success-700\
             disabled:bg-Success-200 disabled:text-Gray-300 disabled:border-Success-200",
+        
+        
         tertiaryGray:
           "text-Gray-600 border-0\
-          hover:bg-Gray-50 text-Gray-700\
-          active:text-Gray-500 shadow-none\
+          hover:bg-Gray-50 hover:text-Gray-700\
+          active:text-Gray-500 active:shadow-none\
+          disabled:text-Gray-300", 
+          linkGray:
+          "text-Gray-600 border-0\
+          hover:text-Gray-700\
+          active:text-Gray-600 active:shadow-none\
           disabled:text-Gray-300", 
         dropDownTrigger:
           "bg-white data-[checked=true]:text-Gray-900 data-[checked=false]:text-Gray-500 text-start text-medium font-medium\
-          active:shadow-none active:scale-100",
+          active:shadow-none",
       },
       size: {
         sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
@@ -55,6 +61,16 @@ const buttonVariants = cva(
         only: "[&>*:last-child]:hidden",
       },
     },
+    compoundVariants: [
+      {
+        variant: ["dropDownTrigger"],
+        className:"active:scale-100",
+      },
+      {
+        variant: ["linkGray"],
+        className:"p-0 active:shadow-none outline-none",
+      },
+    ],
     defaultVariants: {
       variant: "primary",
       size: "sm",
@@ -62,6 +78,8 @@ const buttonVariants = cva(
     },
   }
 );
+
+ 
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -72,6 +90,7 @@ interface ButtonProps
   CustomAbsoluteComponent?: JSX.Element;
   childrenWrapperClassName?: string;
 }
+
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -108,4 +127,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export interface buttonPropsType extends VariantProps<typeof buttonVariants>{}
+
+export { Button, buttonVariants  , type ButtonProps};
+
