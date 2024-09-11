@@ -44,6 +44,8 @@ const NavigationGroup = () => (
 const CTAGroup = () => (
   <div className="flex">
     <Button variant={"tertiaryGray"} size={"2xl"} icon={"leading"} customIconComponent={<GlobeIcon className="h-6"/>}>English</Button>
+    <Button variant={"tertiaryColor"} size={"2xl"} >Download app</Button>
+    <Button variant={"primary"} icon="leading" customIconComponent={<GuestIcon className="h-6" />} size={"2xl"} ><span className="text-2xl">Sign in</span></Button>
   </div>
 )
 
