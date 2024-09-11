@@ -5,7 +5,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 //TODO - delete this line
-const className = "shadow-none transition-all scale-100"
+const className = "shadow-none transition-all scale-100 text-Brand-700 bg-Brand-50 "
+
+/** default classes to put into consideration if they don't fit in the button variant
+ * border
+ * transition-all 
+ * active:shadow-activeElementBoxShadow
+ * active:scale-[.98]
+ * w-full
+ */
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed",
   {
