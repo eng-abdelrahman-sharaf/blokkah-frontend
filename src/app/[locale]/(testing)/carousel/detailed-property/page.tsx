@@ -1,4 +1,3 @@
-import { fontSizesAliases } from "@/lib/utils";
 import PropertyIcon from "./prototype-icon";
 import propertyImage from "./property.png"
 

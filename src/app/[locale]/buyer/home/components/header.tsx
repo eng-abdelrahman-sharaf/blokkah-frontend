@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Logo } from "@/components/icons";
-import { fontSizesAliases } from "@/lib/utils";
 import { Button } from "@/components/UI/Button";
 import { DropDownBody } from "../../components/dropDown";
 import GlobeIcon from "../assets/globeIcon";

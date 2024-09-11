@@ -1,6 +1,5 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { fontSizesAliases } from "@/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -45,7 +44,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      `text-Gray-900 ${fontSizesAliases["display-sm"]} font-bold text-center align-top`,
+      `text-Gray-900 ${"text-3xl"} font-bold text-center align-top`,
       className
     )}
     {...props}

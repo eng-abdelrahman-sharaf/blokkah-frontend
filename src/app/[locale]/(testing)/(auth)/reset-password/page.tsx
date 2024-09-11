@@ -1,4 +1,3 @@
-import { fontSizesAliases } from "@/lib/utils";
 import { Button } from "@/components/UI/Button";
 import {
   Card,

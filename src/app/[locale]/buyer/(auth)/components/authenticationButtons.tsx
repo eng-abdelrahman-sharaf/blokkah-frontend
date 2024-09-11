@@ -3,7 +3,7 @@ import PhoneIcon from "../../assets/phoneIcon";
 import GoogleIcon from "../../assets/googleIcon";
 import AppleIcon from "../../assets/appleIcon";
 import XIcon from "../../assets/xIcon";
-import { cn, fontSizesAliases } from "@/lib/utils";
+import { cn} from "@/lib/utils";
 import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
 
