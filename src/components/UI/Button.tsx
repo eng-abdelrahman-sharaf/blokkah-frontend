@@ -39,21 +39,23 @@ const buttonVariants = cva(
             hover:bg-Success-700\
             active:bg-Success-700\
             disabled:bg-Success-200 disabled:text-Gray-300 disabled:border-Success-200",
-        
+        tertiaryColor:
+          "text-Brand-700\
+          hover:bg-Brand-50\
+          disabled:text-Gray-300",
         
         tertiaryGray:
-          "text-Gray-600 border-0\
+          "text-Gray-600\
           hover:bg-Gray-50 hover:text-Gray-700\
-          active:text-Gray-500 active:shadow-none\
+          active:text-Gray-500\
           disabled:text-Gray-300", 
           linkGray:
-          "text-Gray-600 border-0\
+          "text-Gray-600\
           hover:text-Gray-700\
-          active:text-Gray-600 active:shadow-none\
+          active:text-Gray-600\
           disabled:text-Gray-300", 
         dropDownTrigger:
-          "bg-white data-[checked=true]:text-Gray-900 data-[checked=false]:text-Gray-500 text-start text-medium font-medium\
-          active:shadow-none",
+          "bg-white data-[checked=true]:text-Gray-900 data-[checked=false]:text-Gray-500 text-start text-medium font-medium",
       },
       size: {
         sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
@@ -70,14 +72,26 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
+      // disable shadow when active 
       {
-        variant: ["dropDownTrigger"],
+        variant: ["dropDownTrigger" , ],
         className:"active:scale-100",
       },
+      // disable borders
+      {
+        variant: ["tertiaryGray" , "tertiaryColor" , "linkGray"],
+        className:"border-0",
+      },
+      // disable active shadows
+      {
+        variant: ["linkGray" , "tertiaryGray" ,"tertiaryColor"  , "dropDownTrigger"],
+        className:"active:shadow-none",
+      },
+      // no Padding
       {
         variant: ["linkGray"],
-        className:"p-0 active:shadow-none outline-none",
-      },
+        className:"p-0"
+      }
     ],
     defaultVariants: {
       variant: "primary",
