@@ -1,32 +1,23 @@
 // middleware.ts
 
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-
-const redirects: { [key: string]: string } = {
-    '/user-management': '/user-management/agents-requests',
-    '/property-management': '/property-management/property-types',
-    '/content-management': '/content-management/banners',
-    '/reports-and-complaints': '/reports-and-complaints/agents-and-properties',
-};
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { internMiddleware, internMatcher } from "@/lib/internationalization";
+import {
+  dashboardMiddleware,
+  dashboardMatcher,
+} from "@/lib/dashboardMiddleWare";
 
 export function middleware(request: NextRequest) {
-    const url = request.nextUrl.clone();
-    const pathname = url.pathname;
+    const pathname = request.nextUrl.pathname;
 
-    if (redirects[pathname]) {
-        url.pathname = redirects[pathname];
-        return NextResponse.redirect(url);
-    }
-
-    return NextResponse.next();
+  if (dashboardMatcher.includes(pathname)) {
+    return dashboardMiddleware(request);
+  } else if (pathname.startsWith("/buyer")) {
+    return internMiddleware(request);
+  } else return NextResponse.next();
 }
 
 export const config = {
-    matcher: [
-        '/user-management',
-        '/property-management',
-        '/content-management',
-        '/reports-and-complaints',
-    ],
+    matcher: internMatcher.concat(dashboardMatcher),
 };
