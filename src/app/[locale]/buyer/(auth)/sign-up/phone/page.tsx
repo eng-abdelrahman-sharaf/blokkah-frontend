@@ -6,27 +6,27 @@ import Date from "../components/date";
 import Checkbox from "@/app/[locale]/components/checkbox";
 
 
+const Input = ({
+  label,
+  placeholder,
+}: {
+  label: string;
+  placeholder: string;
+}) => {
+  const id = randomId();
+  return (
+      <label className="text-xl flex-grow text-Gray-700 font-medium flex flex-col gap-1.5 items-start" htmlFor={id}>
+        <div className="ml-1">{label}</div>
+        <input
+          type="text"
+          className="px-3.5 py-2.5 w-full text-lg font-medium border border-Gray-300 shadow-xs bg-white rounded-lg"
+          placeholder={placeholder}
+        />
+      </label>
+  );
+};
 
 export default function Page() {
-  const Input = ({
-    label,
-    placeholder,
-  }: {
-    label: string;
-    placeholder: string;
-  }) => {
-    const id = randomId();
-    return (
-        <label className="text-xl flex-grow text-Gray-700 font-medium flex flex-col gap-1.5 items-start" htmlFor={id}>
-          <div className="ml-1">{label}</div>
-          <input
-            type="text"
-            className="px-3.5 py-2.5 w-full text-lg font-medium border border-Gray-300 shadow-xs bg-white rounded-lg"
-            placeholder={placeholder}
-          />
-        </label>
-    );
-  };
   return (
     <>
       <AuthCardHeader
@@ -55,7 +55,7 @@ export default function Page() {
       </form>
       <SkipSection
         pageType="sign up"
-        answerHref="/buyer/log-in/method"
+        answerHref="../log-in/method"
         skipHref="/"
       />
     </>

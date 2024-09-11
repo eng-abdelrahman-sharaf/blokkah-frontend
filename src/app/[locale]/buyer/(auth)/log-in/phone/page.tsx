@@ -5,9 +5,9 @@ import AuthPhoneInput from "../../components/authPhoneInput";
 export default function Page() { 
     return (
         <>
-            <AuthCardHeader ContainsArrow={true} href="/buyer/log-in/method" title="Sign in to Your Account" subtitle="Welcome back! Please enter your phone number."/>
+            <AuthCardHeader ContainsArrow={true} href="../log-in/method" title="Sign in to Your Account" subtitle="Welcome back! Please enter your phone number."/>
                 <AuthPhoneInput/>
-            <SkipSection pageType="log in" skipHref="/" answerHref="/buyer/sign-up/method"/>
+            <SkipSection pageType="log in" skipHref="/" answerHref="../sign-up/method"/>
         </>           
     )
 }

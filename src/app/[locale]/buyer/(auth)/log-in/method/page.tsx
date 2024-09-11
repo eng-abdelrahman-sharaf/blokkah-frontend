@@ -7,7 +7,7 @@ export default function Page() {
         <>  
             <AuthCardHeader ContainsArrow={false} title="Welcome Back!" subtitle="Please choose your sign in method."/>
             <AuthenticationButtons type="Log in"/>
-            <SkipSection pageType="log in" answerHref="/buyer/sign-up/method" skipHref="/"/>
+            <SkipSection pageType="log in" answerHref="../sign-up/method" skipHref="/"/>
         </>
     )
 }
