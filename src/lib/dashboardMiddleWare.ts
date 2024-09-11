@@ -1,8 +1,4 @@
 // middleware.ts
-
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-
 const redirects: { [key: string]: string } = {
     '/user-management': '/user-management/agents-requests',
     '/property-management': '/property-management/property-types',
@@ -10,16 +6,13 @@ const redirects: { [key: string]: string } = {
     '/reports-and-complaints': '/reports-and-complaints/agents-and-properties',
 };
 
-export function dashboardMiddleware(request: NextRequest) {
-    const url = request.nextUrl.clone();
-    const pathname = url.pathname;
+export function dashboardMiddleware(pathname: string) {
 
     if (redirects[pathname]) {
-        url.pathname = redirects[pathname];
-        return NextResponse.redirect(url);
+        return redirects[pathname];
     }
 
-    return NextResponse.next();
+    return pathname;
 }
 
 

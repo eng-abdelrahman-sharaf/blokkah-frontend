@@ -1,17 +1,24 @@
 import { type NextRequest, NextResponse } from "next/server";
+import path from "path";
 
-let locales = ["en", "ar"];
+export const  locales = ["en", "ar"];
 
-export function internMiddleware(request: NextRequest) {
-  const url = request.nextUrl.clone();
-    const pathname = url.pathname;
-    const pathnameHasLocale = locales.some(
-        (locale) => pathname.endsWith(`/${locale}`) || pathname.endsWith(`/${locale}/`)
-    );
-        if (pathnameHasLocale) return NextResponse.next();
-        const locale = "/en";
-        url.pathname = `${pathname}${locale}`;
-        return NextResponse.redirect(url);
+const defaultLocale = "ar";
+
+export function addLocaleToPathName(pathname: string , locale : string = "ar") { 
+  return `/${locale}/${pathname}`
+}
+
+export function getPathNameWithoutLocale(pathname: string) {
+  return locales.reduce((acc, locale) => {
+    return acc.replace(`/${locale}/`, "/");
+  }, pathname);
+}
+
+export function getPathNameLocale(pathname: string) {
+  return locales.find(
+    (locale) => pathname.startsWith(`/${locale}/`)
+  )
 }
 
 export const internMatcher = [
