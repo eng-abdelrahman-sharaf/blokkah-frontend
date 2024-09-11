@@ -52,7 +52,7 @@ const buttonVariants = cva(
         md: "py-[0.625rem] px-4 [&>*:first-child]:w-5",
         lg: "py-[0.625rem] px-[1.125rem] [&>*:first-child]:w-5",
         xl: "py-3 px-5 [&>*:first-child]:w-5",
-        "2xl": "py-4 px-7 [&>*:first-child]:w-6",
+        "2xl": "py-4 px-7 [&>*:first-child]:w-6 gap-3",
       },
       icon: {
         leading: "",
