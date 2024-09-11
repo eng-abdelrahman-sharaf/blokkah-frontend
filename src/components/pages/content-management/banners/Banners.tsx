@@ -6,7 +6,7 @@ import EditBannerModal from '@/components/modals/EditBannerModal';
 import DeleteModal from '@/components/modals/DeleteModal';
 import Banner from './Banner';
 import Tabs from '@/components/Tabs';
-import { BannerType } from '@/app/(dashboard)/content-management/(banners)/banners/page';
+import { BannerType } from '@/app/[locale]/(dashboard)/content-management/(banners)/banners/page';
 
 const bannersTabs = [
     {
