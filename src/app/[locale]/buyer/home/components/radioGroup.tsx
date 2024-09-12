@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
 const RadioGroup = ({
+  checkedValueState,
   ValueArray,
   name,
   defaultChecked= undefined,
@@ -14,6 +15,7 @@ const RadioGroup = ({
   onLabelUnChecked,
   multiple = false,
 }: {
+  checkedValueState: [string,(value: string) => void];
   ValueArray: Array<string>;
   name: string;
   defaultChecked?: string;
@@ -25,8 +27,10 @@ const RadioGroup = ({
   onLabelUnChecked?: (label: HTMLLabelElement) => void;
   multiple?: boolean;
 }) => {
-  
-  const [checkedValue, setCheckedValue] = useState<string | undefined>(defaultChecked)
+
+  const [checkedValue, setCheckedValue] = checkedValueState;
+
+  if(checkedValue != defaultChecked && defaultChecked) setCheckedValue(defaultChecked);
 
   const allLabelsRef = useRef<HTMLLabelElement[]>([]);
 
