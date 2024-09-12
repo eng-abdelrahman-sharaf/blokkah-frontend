@@ -72,6 +72,11 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
+      // removing transition 
+      {
+        variant: "dropDownTrigger",
+        className:"transition-none"
+      },
       // disable shadow when active 
       {
         variant: ["dropDownTrigger" , ],
@@ -137,10 +142,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp className={cn(buttonVariants(variants))} ref={ref} {...props} />
     ) : (
       <Comp className={cn(buttonVariants(variants))} ref={ref} {...props}>
-        <div>
-          {customIconComponent ? customIconComponent : null}
-          {iconSrc ? <img src={iconSrc} alt="icon" /> : null}
-        </div>
+        {/* <div> */}
+        {customIconComponent ? customIconComponent : null}
+        {iconSrc ? <img src={iconSrc} alt="icon" /> : null}
+        {/* </div> */}
         <div className={childrenWrapperClassName}>{props.children}</div>
         {CustomAbsoluteComponent}
       </Comp>
