@@ -46,14 +46,14 @@ const CTAGroup = () => (
   <div className="flex gap-3">
     <Button variant={"tertiaryGray"} size={"2xl"} icon={"leading"} customIconComponent={<GlobeIcon className="h-6"/>}>English</Button>
     <Button variant={"tertiaryColor"} size={"2xl"} >Download app</Button>
-    <Button variant={"primary"} icon="leading" customIconComponent={<GuestIcon className="h-6" />} size={"2xl"} ><span className="text-2xl">Sign in</span></Button>
+    <Button variant={"primary"} icon="leading" size={"2xl"} asChild><Link href="./log-in/method"><GuestIcon className="h-6" /><span>Sign in</span></Link></Button>
   </div>
 )
 
 const Header = () => {
 
   return (
-    <header className="bg-white px-16 flex justify-between items-center fixed top-0 z-30 inset-x-0 h-24">
+    <header className="bg-white px-16 flex justify-between items-center fixed top-0 z-30 inset-x-0 h-24 text-2xl">
         <NavigationGroup />
         <CTAGroup />
     </header>
