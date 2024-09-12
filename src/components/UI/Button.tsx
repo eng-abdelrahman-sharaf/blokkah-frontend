@@ -15,7 +15,7 @@ const className = "shadow-none transition-all scale-100 text-Brand-700 bg-Brand-
  * w-full
  */
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all [&>*:first-child]:h-auto active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all outline-none [&>*:first-child]:h-auto active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
