@@ -11,7 +11,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  line-height: normal;
+  /** 
+  *inherent not normal to inherit from the bigger container 
+  *for example div1.text-2xl>div2>div3 div3 will inherit the line-height from div1 
+  */
+  
+  /* line-height: normal; */
 }
 
 input{
