@@ -7,12 +7,14 @@ import propertyMapimage from "./assets/propMap.png"
 import bannerImg from "./assets/banner.png"
 import agencyImg from "./assets/agency.png"
 import { useRouter } from "next/navigation";
+import Search from "./components/Search";
 
 export default function Home({ params: { locale } }: { params: { locale: string } }) { 
     
     return (
         <div className="mt-24">
             <Header />
+            <Search />
             <div className="flex  flex-col gap-16 w-full px-[7.5%] items-center">
                 {locale}
             <CustomCarousel carouselItemClassName="w-[32.75rem]" items={
