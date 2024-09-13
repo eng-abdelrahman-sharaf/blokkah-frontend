@@ -15,7 +15,7 @@ interface DropDownProps {
 
 }
 
-export function DropDownBody(props: DropDownProps) {
+export function DropDownBody({AbsoluteMenu , dropDownText , buttonProps = {} , className}: DropDownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const {
     variant = "dropDownTrigger",
@@ -28,23 +28,27 @@ export function DropDownBody(props: DropDownProps) {
     className: buttonClass,
     childrenWrapperClassName,
     onClick = () => setIsOpen(!isOpen),
-  } = props.buttonProps!;
+    size = "2xl",
+    ...otherProps
+  } = buttonProps;
 
 
   return (
-    <div className={cn("relative inline-block text-left", props.className)}>
+    <div className={cn("relative inline-block text-left", className)}>
       <Button
-        variant={variant as any}
-        icon={icon as any}
+        variant={variant}
+        icon={icon}
         customIconComponent={customIconComponent}
         className={buttonClass}
         childrenWrapperClassName={childrenWrapperClassName}
         onClick={onClick}
+        size={size}
+        {...otherProps}
       >
-        {props.dropDownText}
+        {dropDownText}
       </Button>
 
-      {isOpen && props.AbsoluteMenu}
+      {isOpen && AbsoluteMenu}
     </div>
   );
 }
