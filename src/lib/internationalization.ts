@@ -1,7 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server";
 import path from "path";
 
-export const  locales = ["en", "ar"];
+
+export const languageNames = {"en": "English", "ar": "العربية"};
+export const  locales = Object.keys(languageNames);
 
 const defaultLocale = "ar";
 
