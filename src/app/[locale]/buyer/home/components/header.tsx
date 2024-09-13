@@ -4,6 +4,7 @@ import { Button } from "@/components/UI/Button";
 import { DropDownBody } from "../../components/dropDown";
 import GlobeIcon from "../assets/globeIcon";
 import GuestIcon from "../assets/GuestIcon";
+import LanguageSwitch from "./languageSwitch";
 
 const NavLinks = () => (
   <div className="absolute top-full bg-red-500 flex flex-col">
@@ -17,7 +18,7 @@ const ExploreDropDown = () => {
   return (
     <DropDownBody
       dropDownText="Explore"
-      buttonProps={{ variant: "linkGray" }}
+      buttonProps={{ variant: "linkGray", size: "2xl"}}
       AbsoluteMenu={<NavLinks />}
     />
   );
@@ -32,7 +33,7 @@ const NavItem = ({ href, text }: { href: string; text: string }) => (
 );
 
 const NavigationGroup = () => (
-  <div className={`flex gap-10 h-full items-center text-2xl font-medium`}>
+  <div className={`flex gap-10 h-full items-center font-medium`}>
     <Logo className="h-8" />
     <nav className="flex gap-8 ">
       <ExploreDropDown />
@@ -44,9 +45,9 @@ const NavigationGroup = () => (
 
 const CTAGroup = () => (
   <div className="flex gap-3">
-    <Button variant={"tertiaryGray"} size={"2xl"} icon={"leading"} customIconComponent={<GlobeIcon className="h-6"/>}>English</Button>
-    <Button variant={"tertiaryColor"} size={"2xl"} >Download app</Button>
-    <Button variant={"primary"} icon="leading" size={"2xl"} asChild><Link href="./log-in/method"><GuestIcon className="h-6" /><span>Sign in</span></Link></Button>
+    <LanguageSwitch />  
+    <Button variant={"tertiaryColor"} size={"2xl"} icon={false} >Download app</Button>
+    <Button variant={"primary"} icon="leading" size={"2xl"} asChild><Link href="./log-in/method"><div><GuestIcon className="h-6" /></div><span>Sign in</span></Link></Button>
   </div>
 )
 
