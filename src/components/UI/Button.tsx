@@ -14,8 +14,12 @@ const className = "shadow-none transition-all scale-100 text-Brand-700 bg-Brand-
  * active:scale-[.98]
  * w-full
  */
+/** ! Important :
+ * the svg is [&>*:first-child>*]:
+ * the div containing the svg is [&>*:first-child]:
+ *  */
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all outline-none [&>*:first-child]:h-auto active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-semibold transition-all outline-none [&>*:first-child>*]:h-auto active:shadow-activeElementBoxShadow active:scale-[.98] disabled:pointer-events-none w-full disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
@@ -43,60 +47,66 @@ const buttonVariants = cva(
           "text-Brand-700\
           hover:bg-Brand-50\
           disabled:text-Gray-300",
-        
+
         tertiaryGray:
           "text-Gray-600\
           hover:bg-Gray-50 hover:text-Gray-700\
           active:text-Gray-500\
-          disabled:text-Gray-300", 
-          linkGray:
+          disabled:text-Gray-300",
+        linkGray:
           "text-Gray-600\
           hover:text-Gray-700\
           active:text-Gray-600\
-          disabled:text-Gray-300", 
+          disabled:text-Gray-300",
         dropDownTrigger:
           "bg-white data-[checked=true]:text-Gray-900 data-[checked=false]:text-Gray-500 text-start text-medium font-medium",
       },
       size: {
-        sm: "py-2 px-[0.875rem] [&>*:first-child]:w-5",
-        md: "py-[0.625rem] px-4 [&>*:first-child]:w-5",
-        lg: "py-[0.625rem] px-[1.125rem] [&>*:first-child]:w-5",
-        xl: "py-3 px-5 [&>*:first-child]:w-5",
-        "2xl": "py-4 px-7 [&>*:first-child]:w-6 gap-3",
+        sm: "py-2 px-[0.875rem] [&>*:first-child>*]:w-5",
+        md: "py-[0.625rem] px-4 [&>*:first-child>*]:w-5",
+        lg: "py-[0.625rem] px-[1.125rem] [&>*:first-child>*]:w-5",
+        xl: "py-3 px-5 [&>*:first-child>*]:w-5",
+        "2xl": "py-4 px-7 [&>*:first-child>*]:w-6 gap-3",
       },
       icon: {
         leading: "",
         trailing: "flex-row-reverse",
+        // hide the icon container not to take a extra space (gap) with its neighbor
         false: "[&>*:first-child]:hidden",
         only: "[&>*:last-child]:hidden",
       },
     },
     compoundVariants: [
-      // removing transition 
+      // removing transition
       {
         variant: "dropDownTrigger",
-        className:"transition-none"
+        className: "transition-none",
       },
-      // disable shadow when active 
+      // disable shadow when active
       {
-        variant: ["dropDownTrigger" , ],
-        className:"active:scale-100",
+        variant: ["dropDownTrigger"],
+        className: "active:scale-100",
       },
       // disable borders
       {
-        variant: ["tertiaryGray" , "tertiaryColor" , "linkGray"],
-        className:"border-0",
+        variant: ["tertiaryGray", "tertiaryColor", "linkGray"],
+        className: "border-0",
       },
       // disable active shadows
       {
-        variant: ["linkGray" , "tertiaryGray" ,"tertiaryColor"  , "dropDownTrigger"],
-        className:"active:shadow-none",
+        variant: [
+          "linkGray",
+          "tertiaryGray",
+          "tertiaryColor",
+          "dropDownTrigger",
+        ],
+        className: "active:shadow-none",
       },
       // no Padding
       {
         variant: ["linkGray"],
-        className:"p-0"
-      }
+        className: "p-0",
+      },
     ],
     defaultVariants: {
       variant: "primary",
@@ -106,18 +116,15 @@ const buttonVariants = cva(
   }
 );
 
- 
-
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   iconSrc?: string;
   customIconComponent?: React.ReactNode;
   CustomAbsoluteComponent?: JSX.Element;
   childrenWrapperClassName?: string;
 }
-
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -142,10 +149,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp className={cn(buttonVariants(variants))} ref={ref} {...props} />
     ) : (
       <Comp className={cn(buttonVariants(variants))} ref={ref} {...props}>
-        {/* <div> */}
-        {customIconComponent ? customIconComponent : null}
-        {iconSrc ? <img src={iconSrc} alt="icon" /> : null}
-        {/* </div> */}
+        {/* div is used to be always the first child of Comp not to affect the childrenWrapper with [&>*:first-child]: */}
+        <div>
+          {customIconComponent ? customIconComponent : null}
+          {iconSrc ? <img src={iconSrc} alt="icon" /> : null}
+        </div>
         <div className={childrenWrapperClassName}>{props.children}</div>
         {CustomAbsoluteComponent}
       </Comp>
@@ -154,7 +162,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-export interface buttonPropsType extends VariantProps<typeof buttonVariants>{}
+export interface buttonPropsType extends VariantProps<typeof buttonVariants> {}
 
-export { Button, buttonVariants  , type ButtonProps};
-
+export { Button, buttonVariants, type ButtonProps };
