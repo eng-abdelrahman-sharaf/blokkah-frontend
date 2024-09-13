@@ -6,6 +6,7 @@ import RadioGroup from "./radioGroup";
 import { Input } from "@nextui-org/input";
 import { useState } from "react";
 import { SearchIcon } from "lucide-react";
+import { DropDownBody } from "../../components/dropDown";
 
 export default function Search() {
 
@@ -37,6 +38,7 @@ export default function Search() {
         <div>Buy</div>
       </RadioGroup>
 
+      {/* search bar */}
       <div
               onKeyDown={handleKeyDown}
               className="w-96"
@@ -59,6 +61,10 @@ export default function Search() {
           startContent={<SearchIcon className="w-5 h-5 grow-0" />}
         />
       </div>
+
+
+      {/* dropDowns */}
+      <DropDownBody AbsoluteMenu={<div/>} dropDownText="Property type" />
     </Background>
   );
 }
