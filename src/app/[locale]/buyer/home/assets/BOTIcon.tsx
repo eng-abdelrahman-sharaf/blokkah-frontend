@@ -1,4 +1,4 @@
-export default function BOTICon({ className }: { className: string }) {
+export default function BOTICon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
