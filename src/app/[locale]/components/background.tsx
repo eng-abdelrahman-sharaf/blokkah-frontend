@@ -4,7 +4,7 @@ import React from "react";
 interface BackgroundProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
     className?: string;
     imgClassName?: string;
-    imageSrc?: string;
+    imageSrc: string;
     imageAlt?: string;
 }
 const Background = React.forwardRef<
