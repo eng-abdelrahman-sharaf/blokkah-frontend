@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import Header from "./components/header";
 import CustomCarousel from "../components/carousel";
@@ -6,7 +6,6 @@ import propertyimage from "./assets/property.png"
 import propertyMapimage from "./assets/propMap.png"
 import bannerImg from "./assets/banner.png"
 import agencyImg from "./assets/agency.png"
-import { useRouter } from "next/navigation";
 import Search from "./components/Search";
 
 export default function Home({ params: { locale } }: { params: { locale: string } }) { 
@@ -28,16 +27,21 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <img src={bannerImg.src} className="w-full object-cover" alt="banner-image" />
             <CustomCarousel items={
                 [
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
-                    <img src={propertyimage.src}></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
+                    <img src={propertyimage.src} className="w-72"></img>,
                 ]
             }
             />
