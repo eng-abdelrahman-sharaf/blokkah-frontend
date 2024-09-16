@@ -19,7 +19,7 @@ const Input = ({
         <div className="ml-1">{label}</div>
         <input
           type="text"
-          className="px-3.5 py-2.5 w-full text-lg font-medium border border-Gray-300 shadow-xs bg-white rounded-lg"
+          className="px-3.5 py-2.5 w-full text-lg font-medium border border-Gray-300 shadow-xs bg-white rounded-lg placeholder:text-Gray-500"
           placeholder={placeholder}
         />
       </label>
