@@ -6,16 +6,17 @@ const RadioGroup = ({
   checkedValueState,
   ValueArray,
   name,
-  defaultChecked= undefined,
+  defaultChecked = undefined,
   wholeContainerClassName,
   singleContainerClassName,
   absoluteBGClassName,
   children,
   onLabelChecked,
   onLabelUnChecked,
+  customOnchange,
   multiple = false,
 }: {
-  checkedValueState: [string,(value: string) => void];
+  checkedValueState: [string, (value: string) => void];
   ValueArray: Array<string>;
   name: string;
   defaultChecked?: string;
@@ -25,25 +26,31 @@ const RadioGroup = ({
   children: JSX.Element[];
   onLabelChecked?: (label: HTMLLabelElement) => void;
   onLabelUnChecked?: (label: HTMLLabelElement) => void;
+  customOnchange?: (e: any) => void;
   multiple?: boolean;
 }) => {
-
   const [checkedValue, setCheckedValue] = checkedValueState;
 
-  if(checkedValue != defaultChecked && defaultChecked) setCheckedValue(defaultChecked);
+  if (checkedValue != defaultChecked && defaultChecked)
+    setCheckedValue(defaultChecked);
 
   const allLabelsRef = useRef<HTMLLabelElement[]>([]);
 
-  const onChange = (e:any) => { 
-    if (e.target.checked) {
-      setCheckedValue(e.target.value) 
+  const onChange = (e: any) => {
+    if (customOnchange) {
+      customOnchange(e);
     }
-  }
+    else if (e.target.checked) {
+      setCheckedValue(e.target.value);
+    }
+  };
 
   useEffect(() => {
     for (const label of allLabelsRef.current) {
-      if (label && onLabelUnChecked && label.dataset.value != checkedValue) onLabelUnChecked(label);
-      else if (label && onLabelChecked && label.dataset.value == checkedValue) onLabelChecked(label);
+      if (label && onLabelUnChecked && label.dataset.value != checkedValue)
+        onLabelUnChecked(label);
+      else if (label && onLabelChecked && label.dataset.value == checkedValue)
+        onLabelChecked(label);
     }
   }, [checkedValue]);
 
@@ -59,12 +66,22 @@ const RadioGroup = ({
           <label
             data-value={value}
             key={index}
-            className={cn(`text-Gray-500 text-lg font-regular  rounded-lg  px-3 py-2 relative z-10
-                  [&:has(>:checked)]:text-Secondary-900` , singleContainerClassName)}
-            ref = {(el) => {if(el) allLabelsRef.current[index] = el}}
+            className={cn(
+              `text-Gray-500 text-lg font-regular  rounded-lg  px-3 py-2 relative z-10
+                  [&:has(>:checked)]:text-Secondary-900`,
+              singleContainerClassName
+            )}
+            ref={(el) => {
+              if (el) allLabelsRef.current[index] = el;
+            }}
           >
             {children[index]}
-            <div className={cn("absolute w-full h-full top-0 left-0 rounded-lg -z-10 [&:has(+:checked)]:bg-Secondary-50  [&:has(+:checked)]:border [&:has(+:checked)]:border-Secondary-600" , absoluteBGClassName)}></div>
+            <div
+              className={cn(
+                "absolute w-full h-full top-0 left-0 rounded-lg -z-10 [&:has(+:checked)]:bg-Secondary-50  [&:has(+:checked)]:border [&:has(+:checked)]:border-Secondary-600",
+                absoluteBGClassName
+              )}
+            ></div>
             <input
               name={name}
               value={value}
