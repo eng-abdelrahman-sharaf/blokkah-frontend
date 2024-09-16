@@ -261,6 +261,9 @@ import { ReactNode } from "react";
 //TODO - in arabic align end and startindex is the last element
 //TODO - in english align start and startindex is the 0
 //TODO - direction is always ltr
+// Three Options 
+// 1- basis-0 or basis-ratio -ml setting size for every element
+// 2- basis-auto pl- not setting size
 export default function CustomCarousel({
   carouselItemClassName = "",
   CarouselClassName = "",
@@ -303,7 +306,7 @@ export default function CustomCarousel({
           {items.map((item: ReactNode, index: number) => (
             <CarouselItem
               key={index}
-              className={cn("basis-3/4 max-w-96", carouselItemClassName)}
+              className={cn("basis-auto pl-0 max-w-96 ", carouselItemClassName)}
             >
               {item}
             </CarouselItem>
