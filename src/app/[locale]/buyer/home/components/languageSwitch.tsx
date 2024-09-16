@@ -1,3 +1,5 @@
+"use client"
+
 import { usePathname } from "next/navigation";
 import { languageNames } from "@/lib/internationalization";
 import { Button } from "@/components/UI/Button";
