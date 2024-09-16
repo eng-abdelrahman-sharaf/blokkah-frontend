@@ -7,9 +7,12 @@ import { Cairo, DM_Sans } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
 import "./globals.css";
-import { NextUIProvider } from "@nextui-org/system";
+import { NextUIProvider } from "@nextui-org/react";
 
-const cairo = Cairo({ subsets: ["latin"], weight: ['200', '300', '400', '500', '600', '700', '800', '900', '1000'] });
+const cairo = Cairo({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,13 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="!h-full !text-[13px] lg:!text-[16px]">
+    //!TODO -  It is better not to suppressHydrationWarning and to fix the error (the reason is using NextUIProvider)
+    <html lang="en" className="!h-full !text-[13px] lg:!text-[16px]" suppressHydrationWarning>
       <body className="!h-full">
         {/* h-full to not take the height of the browser's toolbar */}
         {/* NextUIProvider used to allow using nextUI individual components */}
-        <NextUIProvider className={`${cairo.className} h-full overflow-y-auto w-screen overflow-x-hidden`}>
-              {children}
-            <Toaster position="bottom-right" />
+        <NextUIProvider
+          className={`${cairo.className} h-full overflow-y-auto w-screen overflow-x-hidden`}
+        >
+          {children}
+          <Toaster position="bottom-right" />
         </NextUIProvider>
       </body>
     </html>
