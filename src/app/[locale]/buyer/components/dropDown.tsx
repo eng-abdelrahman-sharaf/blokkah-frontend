@@ -7,20 +7,28 @@ import { ReactNode, useState } from "react";
 import { ButtonProps } from "@/components/UI/Button";
 
 interface DropDownProps {
-  dropDownText: string;
-  AbsoluteMenu: ReactNode;
+  isOpenState: [boolean, (value: boolean) => void];
+
+  dropDownText?: string;
+  AbsoluteMenu?: ReactNode;
   className?: string;
+  customButton?: ReactNode;
 
-  buttonProps?: ButtonProps
-
+  buttonProps?: ButtonProps;
 }
 
-export function DropDownBody({AbsoluteMenu , dropDownText , buttonProps = {} , className}: DropDownProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export function DropDownBody({
+  AbsoluteMenu,
+  dropDownText,
+  buttonProps = {},
+  isOpenState : [isOpen, setIsOpen],
+  customButton,
+  className,
+}: DropDownProps) {
   const {
     variant = "dropDownTrigger",
     icon = "trailing",
-    customIconComponent =           isOpen ? (
+    customIconComponent = isOpen ? (
       <ChevronUp className="h-4 w-4" />
     ) : (
       <ChevronDown className="h-4 w-4" />
@@ -32,21 +40,24 @@ export function DropDownBody({AbsoluteMenu , dropDownText , buttonProps = {} , c
     ...otherProps
   } = buttonProps;
 
-
   return (
-    <div className={cn("relative inline-block text-left", className)}>
-      <Button
-        variant={variant}
-        icon={icon}
-        customIconComponent={customIconComponent}
-        className={buttonClass}
-        childrenWrapperClassName={childrenWrapperClassName}
-        onClick={onClick}
-        size={size}
-        {...otherProps}
-      >
-        {dropDownText}
-      </Button>
+    <div className={cn("relative inline-block", className)}>
+      {customButton ? (
+        customButton
+      ) : (
+        <Button
+          variant={variant}
+          icon={icon}
+          customIconComponent={customIconComponent}
+          className={cn( "text-left" , buttonClass)}
+          childrenWrapperClassName={childrenWrapperClassName}
+          onClick={onClick}
+          size={size}
+          {...otherProps}
+        >
+          {dropDownText}
+        </Button>
+      )}
 
       {isOpen && AbsoluteMenu}
     </div>
@@ -81,5 +92,5 @@ const RangeAbsMenu = () => {
 };
 
 export function AreaDropDown() {
-  return <DropDownBody dropDownText="Area" AbsoluteMenu={<RangeAbsMenu />} />;
+  return <DropDownBody isOpenState={useState(false)} dropDownText="Area" AbsoluteMenu={<RangeAbsMenu />} />;
 }
