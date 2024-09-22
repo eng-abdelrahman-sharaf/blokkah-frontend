@@ -1,12 +1,10 @@
-// "use client"
-
 import Header from "./components/header";
 import CustomCarousel from "../components/carousel";
 import propertyimage from "./assets/property.png"
 import propertyMapimage from "./assets/propMap.png"
 import bannerImg from "./assets/banner.png"
 import agencyImg from "./assets/agency.png"
-import Search from "./components/Search";
+import Search from "./components/inputComponents/Search";
 import GPT from "./components/GPT";
 
 export default function Home({

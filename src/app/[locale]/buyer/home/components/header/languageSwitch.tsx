@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { languageNames } from "@/lib/internationalization";
 import { Button } from "@/components/UI/Button";
-import GlobeIcon from "../assets/globeIcon";
+import GlobeIcon from "../../assets/globeIcon";
 import Link from "next/link";
 
 export default function LanguageSwitch() {

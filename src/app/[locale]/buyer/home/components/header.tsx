@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/icons";
 import { Button } from "@/components/UI/Button";
 import GuestIcon from "../assets/GuestIcon";
-import LanguageSwitch from "./languageSwitch";
+import LanguageSwitch from "./header/languageSwitch";
 import ExploreDropDown from "./header/exploreDropDown";
 
 
