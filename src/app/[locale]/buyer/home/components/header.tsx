@@ -1,28 +1,11 @@
 import Link from "next/link";
 import { Logo } from "@/components/icons";
 import { Button } from "@/components/UI/Button";
-import { DropDownBody } from "../../components/dropDown";
-import GlobeIcon from "../assets/globeIcon";
 import GuestIcon from "../assets/GuestIcon";
 import LanguageSwitch from "./languageSwitch";
+import ExploreDropDown from "./header/exploreDropDown";
 
-const NavLinks = () => (
-  <div className="absolute top-full bg-red-500 flex flex-col">
-    <Link href={"/home"}>Home</Link>
-    <Link href={"/home"}>Home</Link>
-    <Link href={"/home"}>Home</Link>
-  </div>
-);
 
-const ExploreDropDown = () => {
-  return (
-    <DropDownBody
-      dropDownText="Explore"
-      buttonProps={{ variant: "linkGray", size: "2xl"}}
-      AbsoluteMenu={<NavLinks />}
-    />
-  );
-};
 
 const NavItem = ({ href, text }: { href: string; text: string }) => (
   <Button variant={"linkGray"} size={"2xl"} asChild>
@@ -54,7 +37,7 @@ const CTAGroup = () => (
 const Header = () => {
 
   return (
-    <header className="bg-white px-16 flex justify-between items-center fixed top-0 z-30 inset-x-0 h-24 text-2xl">
+    <header className="bg-white px-16 flex justify-between items-center fixed top-0 inset-x-0 h-24 text-2xl">
         <NavigationGroup />
         <CTAGroup />
     </header>
