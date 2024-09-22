@@ -64,7 +64,7 @@ export default function Search() {
 
 
       {/* dropDowns */}
-      <DropDownBody AbsoluteMenu={<div/>} dropDownText="Property type" />
+      <DropDownBody isOpenState={useState(false)} AbsoluteMenu={<div/>} dropDownText="Property type" />
     </Background>
   );
 }
