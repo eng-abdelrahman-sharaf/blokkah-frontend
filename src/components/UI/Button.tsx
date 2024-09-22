@@ -27,7 +27,7 @@ const buttonVariants = cva(
           "bg-Brand-600 text-white shadow-xs border-Brand-600\
             hover:bg-Brand-700\
               active:bg-Brand-600 active:shadow-[0px_0px_0px_4px_rgba(227,246,255,1),0px_1px_2px_0px_rgba(16,24,40,0.05)]\
-            disabled:bg-Brand-200",
+            disabled:bg-Brand-200 disabled:border-Brand-200",
         secondaryGray:
           "bg-white  text-Gray-700 shadow-xs border-Gray-300\
             hover:bg-Gray-50  hover:text-Gray-800\
@@ -60,6 +60,7 @@ const buttonVariants = cva(
           disabled:text-Gray-300",
         dropDownTrigger:
           "bg-white data-[checked=true]:text-Gray-900 data-[checked=false]:text-Gray-500 text-start text-medium font-medium",
+        custom: "",
       },
       size: {
         sm: "py-2 px-[0.875rem] [&>*:first-child>*]:w-5",
@@ -67,6 +68,7 @@ const buttonVariants = cva(
         lg: "py-[0.625rem] px-[1.125rem] [&>*:first-child>*]:w-5",
         xl: "py-3 px-5 [&>*:first-child>*]:w-5",
         "2xl": "py-4 px-7 [&>*:first-child>*]:w-6 gap-3",
+        "custom": "",
       },
       icon: {
         leading: "",
