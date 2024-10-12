@@ -8,10 +8,7 @@ export default async function Home() {
   const session : any = await getServerSession(authOptions);
   return (
     <main>
-      <Background imageSrc={image.src}>
         {session?.user?.email}
-
-      </Background>
     </main>
   );
 }
