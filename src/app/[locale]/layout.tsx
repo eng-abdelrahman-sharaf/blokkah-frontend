@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-
-import { Cairo, DM_Sans } from "next/font/google";
-
-// import { FormProvider } from "@/context/FormContext";
-
-import { Toaster } from "react-hot-toast";
-
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
-
-const cairo = Cairo({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
-});
+import UIProvider from "./components/UIProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -29,16 +18,13 @@ export default function RootLayout({
     // !TODO -  try to fix the size of 1532 x 864 not 1920 x 1080
     // <html lang="en" className="!h-full !text-[14.222px]" suppressHydrationWarning >
     // <html lang="en" className="!h-full !text-[13px] xl:!text-[12px]" suppressHydrationWarning >
-    <html lang="en" className="!h-full" suppressHydrationWarning >
+    <html lang="en" className="!h-full" >
       <body className="!h-full">
         {/* h-full to not take the height of the browser's toolbar */}
         {/* NextUIProvider used to allow using nextUI individual components */}
-        <NextUIProvider
-          className={`${cairo.className} h-full overflow-y-auto w-screen overflow-x-hidden`}
-        >
+        <UIProvider>
           {children}
-          <Toaster position="bottom-right" />
-        </NextUIProvider>
+        </UIProvider>
       </body>
     </html>
   );
