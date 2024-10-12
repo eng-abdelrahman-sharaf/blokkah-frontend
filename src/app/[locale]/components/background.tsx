@@ -15,9 +15,9 @@ const Background = React.forwardRef<
     BackgroundProps
     >(({imageSrc , imageAlt = "background-image", imgClassName ,  className , ...props}, ref) => {
     return (
-        <div ref={ref} className={cn("relative", className)} {...props}>
+        <div ref={ref} className={cn("relative [&>*:not(:last-child)]:z-0 [&>*:not(:last-child)]:relative", className)} {...props}>
             {props.children}
-            <Image src={imageSrc} alt={imageAlt} className={cn("absolute top-0 left-0 right-0 bottom-0 object-cover w-full h-full -z-30" , imgClassName)} fill />
+            <Image src={imageSrc} alt={imageAlt} className={cn("absolute top-0 left-0 right-0 bottom-0 object-cover w-full h-full -z-20" , imgClassName)} fill />
         </div>
     )
 });
