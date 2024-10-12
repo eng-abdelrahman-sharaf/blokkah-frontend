@@ -1,4 +1,5 @@
 import ArrowHead from "@/app/[locale]/assets/arrowHead";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 
@@ -14,7 +15,7 @@ const AuthCardHeader = ({ ContainsArrow = false, title, subtitle, subtitleCompon
         //         {subtitleComponent ? subtitleComponent : <h2 className={`text-lg font-regular text-Gray-600`}>{subtitle}</h2>}
         //     </div>
         // </div>
-        <div className={"grid grid-cols-[2.5rem_1fr] grid-rows-2 w-full items-center"}>
+        <div className={cn("grid grid-rows-2 w-full items-center" , ContainsArrow ? "grid-cols-[2.5rem_1fr]" : "grid-cols-1" )}>
 
             {ContainsArrow && <Link href={href} className="row-span-2"><ArrowHead className="w-10" /></Link>}
             <h1 className={`text-3xl font-bold text-Gray-900`}>{title}</h1>
