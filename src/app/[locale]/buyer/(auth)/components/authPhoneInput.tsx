@@ -30,7 +30,7 @@ export default function AuthPhoneInput({className}:{className?:string}) {
         placeholder="Enter phone number"
         value={value}
         onChange={onChange}
-        flags={flags}
+        flagUrl='https://flagsapi.com/{XX}/flat/64.png'
         international
         className={cn(`bg-white p-2 rounded-lg w-full text-lg font-medium border border-Gray-300 shadow-xs h-[3.125rem] ${styles["authPhoneInput"]}` , className)}
         />
