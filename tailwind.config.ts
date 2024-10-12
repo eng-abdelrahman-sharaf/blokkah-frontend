@@ -58,6 +58,7 @@ const colors = {
   Secondary: {
     "50": "#E3F6FF",
     "100": "#CAEEFF",
+    "200": "#B1E6FF",
     "600": "#02ADFF",
     "700": "#028BCD",
     "900": "#01486A",
