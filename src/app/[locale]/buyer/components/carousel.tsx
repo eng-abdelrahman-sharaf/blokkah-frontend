@@ -208,7 +208,7 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
+        "absolute  h-10 w-10 rounded-full",
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -219,7 +219,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ArrowLeft className="h-5 w-5" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -237,7 +237,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full bg-white",
+        "absolute h-10 w-10 rounded-full bg-white",
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -248,7 +248,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <ArrowRight className="h-5 w-5" />
       <span className="sr-only">Next slide</span>
     </Button>
   );
@@ -262,8 +262,10 @@ import { ReactNode } from "react";
 //TODO - in english align start and startindex is the 0
 //TODO - direction is always ltr
 // Three Options 
-// 1- basis-0 or basis-ratio -ml setting size for every element
-// 2- basis-auto pl- not setting size
+// 1- basis-0 or basis-ratio setting size for every element
+// 2- basis-auto not setting size
+// 3- pl- -ml- setting margin for every element they both must exist
+// 4- max-w- to set max width for every element = image width + padding
 export default function CustomCarousel({
   carouselItemClassName = "",
   CarouselClassName = "",
@@ -302,18 +304,20 @@ export default function CustomCarousel({
           CarouselClassName
         )}
       >
-        <CarouselContent className="justify-between">
+        <CarouselContent className="justify-between -ml-7 ">
           {items.map((item: ReactNode, index: number) => (
             <CarouselItem
               key={index}
-              className={cn("basis-auto pl-0 max-w-96 ", carouselItemClassName)}
+              className={cn("basis-auto pl-7 ", carouselItemClassName)}
             >
               {item}
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-[.5rem]" variant={"secondaryGray"}  />
-        <CarouselNext className="right-[.5rem]" variant={"secondaryGray"}/>
+        {/* <CarouselPrevious className="-left-4" variant={"secondaryGray"}  />
+        <CarouselNext className="-right-4" variant={"secondaryGray"}/> */}
+        <CarouselPrevious className="-left-2 -translate-x-full" variant={"secondaryGray"}  />
+        <CarouselNext className="-right-2 translate-x-full" variant={"secondaryGray"}/>
       </Carousel>
     </>
   );
