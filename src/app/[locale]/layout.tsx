@@ -29,7 +29,7 @@ export default function RootLayout({
     // !TODO -  try to fix the size of 1532 x 864 not 1920 x 1080
     // <html lang="en" className="!h-full !text-[14.222px]" suppressHydrationWarning >
     // <html lang="en" className="!h-full !text-[13px] xl:!text-[12px]" suppressHydrationWarning >
-    <html lang="en" className="!h-full !text-[13px] lg:!text-[16px]" suppressHydrationWarning >
+    <html lang="en" className="!h-full" suppressHydrationWarning >
       <body className="!h-full">
         {/* h-full to not take the height of the browser's toolbar */}
         {/* NextUIProvider used to allow using nextUI individual components */}
