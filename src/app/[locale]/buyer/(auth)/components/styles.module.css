@@ -1,9 +1,21 @@
 .authPhoneInput{
-    & div[class="PhoneInputCountrySelectArrow"]{
+
+    &>div[class="PhoneInputCountrySelectArrow"]{
         display: none;
     }
+
     & div[class="PhoneInputCountry"]{
         margin-left: 0.875rem;
         margin-right: 0.75rem;
     }
+
+    & div[class="PhoneInputCountryIcon PhoneInputCountryIcon--border"]{
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    & img[class="PhoneInputCountryIconImg"]{
+        width: 50px !important;
+    }
+
 }
