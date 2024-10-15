@@ -269,12 +269,14 @@ import { ReactNode } from "react";
 export default function CustomCarousel({
   carouselItemClassName = "",
   CarouselClassName = "",
+  carouselContentClassName = "",
   itemBorderRadiusClassName = "rounded-none",
   items,
   dir = "ltr",
 }: {
   CarouselClassName?: string;
   carouselItemClassName?: string;
+  carouselContentClassName?: string;    
   itemBorderRadiusClassName?: string;
   items: Array<ReactNode>;
   dir?: string;
@@ -304,7 +306,7 @@ export default function CustomCarousel({
           CarouselClassName
         )}
       >
-        <CarouselContent className="justify-between -ml-7 ">
+        <CarouselContent className={cn("justify-between -ml-7 " , carouselContentClassName)}>
           {items.map((item: ReactNode, index: number) => (
             <CarouselItem
               key={index}
