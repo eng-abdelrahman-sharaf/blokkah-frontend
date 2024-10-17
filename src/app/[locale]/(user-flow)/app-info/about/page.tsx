@@ -1,6 +1,6 @@
 import CustomCarousel from "../../components/carousel";
-import Footer from "../../home/components/footer";
-import Header from "../../home/components/header";
+import Footer from "../../(home)/components/footer";
+import Header from "../../(home)/components/header";
 
 export default function () {
     const founders = [

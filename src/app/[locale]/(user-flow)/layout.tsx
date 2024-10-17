@@ -1,6 +1,6 @@
-import Footer from "./home/components/footer";
-import Header from "./home/components/header";
-import TestingGPT from "./home/components/testingGPT";
+import Footer from "./(home)/components/footer";
+import Header from "./(home)/components/header";
+import TestingGPT from "./(home)/components/testingGPT";
 
 export default function ({children}:{children:React.ReactNode}) {
     return (
