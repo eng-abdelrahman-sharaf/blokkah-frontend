@@ -1,5 +1,6 @@
-import { Button } from "@/components/UI/Button";
+
 import Link from "next/link";
+import { Button } from "../../components/Button";
 
 const SkipSection = ({ pageType , answerHref = "#" , skipHref ="#" }: { pageType: "sign up" | "log in" , answerHref:string , skipHref:string }) => {
   const Question = pageType === "sign up" ? "Already have an account?" : "Don’t have an account?";

@@ -1,6 +1,7 @@
+import { Button } from "@/app/[locale]/components/Button";
 import AuthCardHeader from "../../components/authCardHeader";
 import OTP from "../../components/otp";
-import { Button } from "@/components/UI/Button";
+
 
 export default function Page() { 
     const subtitleComponent = <div className="text-lg font-regular">

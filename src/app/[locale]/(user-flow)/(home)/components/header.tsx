@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "@/components/icons";
+import Logo  from "@/app/[locale]/assets/logo";
 import { Button } from "@/app/[locale]/components/Button";
 import GuestIcon from "../assets/GuestIcon";
 import LanguageSwitch from "./header/languageSwitch";

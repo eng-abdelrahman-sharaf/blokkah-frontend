@@ -1,4 +1,4 @@
-import { Button } from "@/components/UI/Button";
+
 import PhoneIcon from "../../(user-flow)/assets/phoneIcon";
 import GoogleIcon from "../../(user-flow)/assets/googleIcon";
 import AppleIcon from "../../(user-flow)/assets/appleIcon";
@@ -6,6 +6,7 @@ import XIcon from "../../(user-flow)/assets/xIcon";
 import { cn} from "@/lib/utils";
 import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
+import { Button } from "../../components/Button";
 
 const AuthenticationButtons = ({ className, type }: { className?: string, type: "create account"|"Log in" }) => {
     let injection : "in"|"up";
