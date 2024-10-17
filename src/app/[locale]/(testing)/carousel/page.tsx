@@ -1,4 +1,4 @@
-import CustomCarousel from "@/app/[locale]/buyer/components/carousel";
+import CustomCarousel from "@/app/[locale]/(user-flow)/components/carousel";
 import DetailedProperty from "./detailed-property/page";
 
 export default function Home() {

@@ -128,7 +128,7 @@
 
 "use client";
 
-import { DropDownBody , AreaDropDown } from "@/app/[locale]/buyer/components/dropDown";
+import { DropDownBody , AreaDropDown } from "@/app/[locale]/(user-flow)/components/dropDown";
 import { useState } from "react";
 
 export default function page() {
