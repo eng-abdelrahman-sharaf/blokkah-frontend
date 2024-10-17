@@ -1,11 +1,11 @@
 "use client";
 
-import RadioGroup from "@/app/[locale]/buyer/home/components/radioGroup";
+import RadioGroup from "@/app/[locale]/(user-flow)/home/components/radioGroup";
 import { cn } from "@/lib/utils";
 import { ReactNode, useState } from "react";
-import AIChatIcons from "../../buyer/home/assets/aiChatIcons";
-import PropertyRequestIcons from "../../buyer/home/assets/propertyRequestIcons";
-import FAQIcons from "../../buyer/home/assets/FAQIcons";
+import AIChatIcons from "../../(user-flow)/home/assets/aiChatIcons";
+import PropertyRequestIcons from "../../(user-flow)/home/assets/propertyRequestIcons";
+import FAQIcons from "../../(user-flow)/home/assets/FAQIcons";
 
 // props is used to get data-checked
 const Option = ({ text, icons , ...props }: { text: string; icons: ReactNode }) => (
