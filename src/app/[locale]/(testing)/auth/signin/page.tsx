@@ -1,6 +1,6 @@
 "use client";
 
-import GoogleIcon from "@/app/[locale]/buyer/assets/googleIcon";
+import GoogleIcon from "@/app/[locale]/(user-flow)/assets/googleIcon";
 import { Button } from "@/components/UI/Button";
 import { url } from "inspector";
 import { signIn } from "next-auth/react";

@@ -1,5 +1,5 @@
 "use client";
-import CalendarIcon from "@/app/[locale]/buyer/(auth)/sign-up/assets/calenderIcon";
+import CalendarIcon from "@/app/[locale]/(auth)/sign-up/assets/calenderIcon";
 import { useState } from "react";
 import { DatePicker } from "@nextui-org/date-picker";
 import styles from "./date-picker.module.css";
