@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.custom-date-style{
+    button{
+        @apply data-[focus-visible=true]:outline-none;
+        /* @apply hidden; */
+    }
+}
