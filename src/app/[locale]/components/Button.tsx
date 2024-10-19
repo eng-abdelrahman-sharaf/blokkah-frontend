@@ -68,6 +68,7 @@ const buttonVariants = cva(
         lg: "py-[0.625rem] px-[1.125rem] [&>*:first-child>*]:w-5",
         xl: "py-3 px-5 [&>*:first-child>*]:w-5",
         "2xl": "py-4 px-7 [&>*:first-child>*]:w-6 gap-3",
+        "dropDownTrigger": "py-2.5 px-3.5 [&>*:first-child>*]:w-5",
         "custom": "",
       },
       icon: {
@@ -126,6 +127,7 @@ interface ButtonProps
   customIconComponent?: React.ReactNode;
   CustomAbsoluteComponent?: JSX.Element;
   childrenWrapperClassName?: string;
+  ellipsis?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -135,6 +137,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant,
       icon,
       size,
+      ellipsis = false,
       iconSrc = undefined,
       customIconComponent = null,
       CustomAbsoluteComponent = null,
@@ -156,7 +159,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {customIconComponent ? customIconComponent : null}
           {iconSrc ? <img src={iconSrc} alt="icon" /> : null}
         </div>
-        <div className={childrenWrapperClassName}>{props.children}</div>
+        <div className={cn(ellipsis && "text-ellipsis overflow-hidden", childrenWrapperClassName)}>{props.children}</div>
         {CustomAbsoluteComponent}
       </Comp>
     );
