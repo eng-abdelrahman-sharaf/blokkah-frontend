@@ -6,7 +6,6 @@ import {
   getPathNameLocale,
   addLocaleToPathName,
 } from "@/lib/internationalization";
-import { dashboardMiddleware } from "@/lib/dashboardMiddleWare";
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
