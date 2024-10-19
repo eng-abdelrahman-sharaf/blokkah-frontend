@@ -9,7 +9,7 @@ import BathsIcons from "../../assets/bathsIcon";
 import BathsIcon from "../../assets/bathsIcon";
 import LivingIcon from "../../assets/livingIcon";
 import MeterSquare from "../../assets/meterSquare";
-
+import CompanyLogo from "../../assets/agency.png"
 
 const BedsBathsLiving = ({ beds, baths, living }: { beds: number, baths: number, living: number }) => { 
   const data = [
@@ -80,14 +80,17 @@ export default function FeaturedProperties() {
         // max-w-96"
         // sm:basis-1/2 md:basis-1/3"
         items={[
-          <Property cost={"3,250,700 EGP"} installment="" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} />,
-          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} />,
-          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} />,
-          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} />,
-          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} />,
-          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} />,
-          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} />,
-          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} />,
+          <Property cost={"3,250,700 EGP"} installment="" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
+          <Property cost={"3,250,700 EGP"} installment="( 250,000 Monthly / 10 Years )" area={120} name="Mountin View City" location="6th of October City, Egypt" baths={1} beds={1} living={1} propertySrc={propertyimage.src} companyLogoSrc={CompanyLogo.src} />,
         ]}
         />
       </div>

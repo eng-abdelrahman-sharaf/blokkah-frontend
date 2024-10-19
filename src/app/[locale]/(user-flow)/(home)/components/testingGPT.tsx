@@ -142,10 +142,10 @@ const FAQ = ({ className }: { className?: string }) => {
     <div className={cn("grow overflow-x-hidden overflow-y-auto flex flex-col gap-5 px-6", className)}>
       <FAQAnswer message="Tell us what you want to know"/>
       {questions.map((item, index) => (
-        <>
-        <FAQQuestion message={item.question} onClick={onClick(index)}/>
-        <FAQAnswer message={item.answer} className={openedQuestions.includes(index) ? "" : "hidden"} />
-        </>
+        <React.Fragment key={index}>
+          <FAQQuestion message={item.question} onClick={onClick(index)}/>
+          <FAQAnswer message={item.answer} className={openedQuestions.includes(index) ? "" : "hidden"} />
+        </React.Fragment>
       ))}
     </div>
   );
