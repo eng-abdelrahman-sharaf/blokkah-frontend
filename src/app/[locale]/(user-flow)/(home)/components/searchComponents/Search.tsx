@@ -60,7 +60,7 @@ export default function Search() {
     <Background
       imageSrc={SearchBG.src}
       backgroundClassName="bg-[linear-gradient(rgba(0,0,0,0.4)_40%,rgba(0,29,49,0.5)_100%)]"
-      className="min-h-[43.75rem] flex flex-col gap-12 items-center justify-center z-0 bg-red-400"
+      className="min-h-[43.75rem] flex flex-col gap-12 items-center justify-center z-0"
     >
       <div className="flex flex-col gap-5 text-Brand-25 *:text-center">
         <div className="text-6xl font-bold">Find your next property in minutes</div>
