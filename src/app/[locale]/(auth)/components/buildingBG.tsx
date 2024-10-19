@@ -6,7 +6,7 @@ import buildingImage from "@/app/[locale]/assets/building.png";
 
 const BuildingBG = ({className}:{className?:string}) => {
     return (
-        <div className={cn("hidden xl:block w-1/2 h-full" , className)}>
+        <div className={cn("hidden xl:block w-1/2 min-h-svh" , className)}>
             <Background imageSrc={buildingImage.src} className="h-full flex justify-center items-center">
                 <FindUrNextHome />
             </Background>
