@@ -20,6 +20,7 @@ const RadioGroup = ({
   checkedValueState,
   ValueArray,
   name,
+  sortChecked = false,
   wholeContainerClassName,
   singleContainerClassName,
   children,
@@ -28,6 +29,7 @@ const RadioGroup = ({
   checkedValueState: any;
   ValueArray: Array<string>;
   name: string;
+  sortChecked?: boolean;
   wholeContainerClassName?: string;
   singleContainerClassName?: string;
   children: JSX.Element[];
@@ -46,7 +48,9 @@ const [checkedValue, setCheckedValue] = checkedValueState;
 
   const addToChecked = (value:string) =>{
     if (multiple) { 
-      setCheckedValue([...checkedValue,value]);
+      const new_result = [...checkedValue, value];
+      if(sortChecked) new_result.sort();
+      setCheckedValue(new_result);
     }
     else {
       setCheckedValue(value);
@@ -83,8 +87,8 @@ const [checkedValue, setCheckedValue] = checkedValueState;
           <label
             key={index}
             className={cn(
-              `text-Gray-500 text-lg font-regular  rounded-lg  px-3 py-2 relative z-0 flex justify-center items-center cursor-pointer
-               data-[checked=true]:text-Secondary-900 data-[checked=true]:bg-Secondary-50 data-[checked=true]:border data-[checked=true]:border-Secondary-600`,
+              `text-Gray-500 text-lg font-regular  rounded-lg  px-3 py-2 relative z-0 flex justify-center items-center cursor-pointer border border-transparent
+               data-[checked=true]:text-Secondary-900 data-[checked=true]:bg-Secondary-50 data-[checked=true]:border-Secondary-600`,
               singleContainerClassName
             )}
             ref={(el) => {
